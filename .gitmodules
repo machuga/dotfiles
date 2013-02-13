@@ -1,0 +1,27 @@
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic
+[submodule ".vim/bundle/vim-coffee-script"]
+	path = .vim/bundle/vim-coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule ".vim/bundle/vim-slim"]
+	path = .vim/bundle/vim-slim
+	url = git@github.com:slim-template/vim-slim.git
+[submodule ".vim/bundle/vim-haml"]
+	path = .vim/bundle/vim-haml
+	url = git@github.com:tpope/vim-haml.git
+[submodule ".vim/bundle/vim-ruby"]
+	path = .vim/bundle/vim-ruby
+	url = git@github.com:vim-ruby/vim-ruby.git
+[submodule ".vim/bundle/vim-rails"]
+	path = .vim/bundle/vim-rails
+	url = git@github.com:tpope/vim-rails.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = .vim/bundle/vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/zoomwin"]
+	path = .vim/bundle/zoomwin
+	url = git@github.com:vim-scripts/ZoomWin.git
