@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/zoomwin"]
 	path = .vim/bundle/zoomwin
 	url = git@github.com:vim-scripts/ZoomWin.git
+[submodule "/Users/machuga/dotfiles/.vim/bundle/handlebars"]
+	path = /Users/machuga/dotfiles/.vim/bundle/handlebars
+	url = git://github.com/nono/vim-handlebars.git
