@@ -99,6 +99,9 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set f
 " add json syntax highlighting
 au BufNewFile,BufRead *.json set ft=javascript
 
+" ejs use html
+au BufNewFile,BufRead *.ejs set filetype=html
+
 " make uses real tabs
 au FileType make set noexpandtab
 
