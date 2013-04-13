@@ -28,3 +28,6 @@
 [submodule "/Users/machuga/dotfiles/.vim/bundle/handlebars"]
 	path = /Users/machuga/dotfiles/.vim/bundle/handlebars
 	url = git://github.com/nono/vim-handlebars.git
+[submodule ".vim/bundle/vim-jade"]
+	path = .vim/bundle/vim-jade
+	url = git://github.com/digitaltoad/vim-jade.git

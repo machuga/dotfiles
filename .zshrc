@@ -72,3 +72,9 @@ alias gpullo="git pull origin"
 alias gpod="git push origin develop"
 
 alias ls="ls -G"
+
+# Vi mode
+#bindkey -v
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
