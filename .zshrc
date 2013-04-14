@@ -72,6 +72,8 @@ alias gpullo="git pull origin"
 alias gpod="git push origin develop"
 
 alias ls="ls -G"
+alias retag="ctags -R --exclude=.svn --exclude=.git --exclude=tmp *"
+# alias retag="ctags -R -f ./.git/tags --exclude=.svn --exclude=.git --exclude=tmp *"
 
 # Vi mode
 #bindkey -v
