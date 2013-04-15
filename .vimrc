@@ -170,4 +170,6 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 " ZoomWin configuration
-map <Leader><Leader> :ZoomWin<CR>
+" ZoomWin gives me too much shit lately to be useful
+" map <Leader><Leader> :ZoomWin<CR>
+map <Leader>' :TagbarToggle<CR>
