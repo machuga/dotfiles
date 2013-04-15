@@ -44,15 +44,15 @@ if &term != "xterm-color"
     if has("gui-running")
         let g:solarized_termcolors=256
         set t_Co=16
-        "set background=light
-        "colorscheme solarized
-        colorscheme grb256
+        set background=light
+        colorscheme solarized
+        "colorscheme grb256
     else
         "let g:solarized_termcolors=256
         set t_Co=16
-        "set background=light
-        "colorscheme solarized
-        colorscheme grb256
+        set background=light
+        colorscheme solarized
+        "colorscheme grb256
     endif
 endif
 " Directories for swp files
