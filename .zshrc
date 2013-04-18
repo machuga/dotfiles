@@ -70,6 +70,7 @@ alias gfff="git flow feature finish"
 alias gpusho="git push origin"
 alias gpullo="git pull origin"
 alias gpod="git push origin develop"
+alias gpom="git push origin master"
 
 alias ls="ls -G"
 alias retag="ctags -R --exclude=.svn --exclude=.git --exclude=tmp *"
