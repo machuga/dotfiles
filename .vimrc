@@ -144,7 +144,7 @@ nnoremap <Leader>o :set nopaste<CR>
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
-set shell=/bin/sh
+set shell=/bin/zsh
 
 
 " Package specific bindings
