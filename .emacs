@@ -24,3 +24,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(load-theme 'solarized-light t)
+(add-to-list 'auto-mode-alist '("\\.coffee\\'" . coffee-mode))

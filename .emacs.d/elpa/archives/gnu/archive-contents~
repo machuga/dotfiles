@@ -1,7 +1,7 @@
 (1
  (ack .
-      [(1 2)
-       nil "Interface to ack-like source code search tools" tar])
+      [(0 9)
+       nil "Interface to ack, a source code search tool" tar])
  (adaptive-wrap .
 		[(0 2)
 		 nil "Smart line-wrapping with wrap-prefix" single])
@@ -18,10 +18,10 @@
 	      [(0 4 1)
 	       nil "Major mode for CoffeeScript files" tar])
  (company .
-	  [(0 6 9)
+	  [(0 6 6)
 	   nil "Modular in-buffer completion framework" tar])
  (csv-mode .
-	   [(1 2)
+	   [(1 1)
 	    nil "Major mode for editing comma/char separated values" single])
  (debbugs .
 	  [(0 4)
@@ -47,9 +47,6 @@
  (eldoc-eval .
 	     [(0 1)
 	      nil "Enable eldoc support when minibuffer is in use." single])
- (enwc .
-       [(1 0)
-	nil "The Emacs Network Client" tar])
  (epoch-view .
 	     [(0 0 1)
 	      nil "Minor mode to visualize epoch timestamps" single])
@@ -69,18 +66,15 @@
 	      [(1 0)
 	       nil "Major mode for Jgraph files" single])
  (js2-mode .
-	   [(20130510)
+	   [(20130307)
 	    ((emacs
 	      (24 1)))
 	    "Improved JavaScript editing mode" single])
- (jumpc .
-	[(2 0)
-	 nil "jump to previous insertion points" single])
  (lex .
-      [(1 1)
-       nil "Lexical analyser construction" tar])
+      [(1 0)
+       nil "Lexical analyser construction" single])
  (lmc .
-      [(1 2)
+      [(1 1)
        nil "Little Man Computer in Elisp" single])
  (load-dir .
 	   [(0 0 3)
@@ -112,11 +106,8 @@
  (oauth2 .
 	 [(0 8)
 	  nil "OAuth 2.0 Authorization Protocol" single])
- (omn-mode .
-	   [(1 0)
-	    nil "Support for OWL Manchester Notation" single])
  (org .
-      [(20130513)
+      [(20130401)
        nil "Outline-based notes management and organizer" tar])
  (quarter-plane .
 		[(0 1)
@@ -125,7 +116,7 @@
 	[(0 1)
 	 nil "Queue data structure" single])
  (rainbow-mode .
-	       [(0 8)
+	       [(0 7)
 		nil "Colorize color names in buffers" single])
  (register-list .
 		[(0 1)
