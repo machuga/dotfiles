@@ -40,21 +40,21 @@ set showcmd
 set modeline
 set modelines=10
 
-if &term != "xterm-color"
-    if has("gui-running")
-        let g:solarized_termcolors=256
-        set t_Co=16
-        set background=light
-        colorscheme solarized
-        "colorscheme grb256
-    else
+"if &term != "xterm-color"
+    "if has("gui-running")
         "let g:solarized_termcolors=256
-        set t_Co=16
-        set background=light
-        colorscheme solarized
+        "set t_Co=16
+        "set background=light
+        "colorscheme solarized
+    "else
+        "let g:solarized_termcolors=256
         "colorscheme grb256
-    endif
-endif
+    "endif
+"else
+    set t_Co=16
+    set background=dark
+    colorscheme base16-tomorrow
+"endif
 " Directories for swp files
 set backupdir=~/.vim/backups
 set directory=~/.vim/backups

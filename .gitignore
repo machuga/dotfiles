@@ -2,3 +2,4 @@
 .vim/backups/*
 !.vim/backups/.gitkeep
 .emacs.d/auto-save-list/*
+.emacs.d
