@@ -36,9 +36,18 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+os=`uname -s`
+
 # Customize to your needs...
-export PATH=$HOME/.rbenv/shims:/usr/local/bin:.:/usr/local/share/npm/bin:/bin:$PATH
-export PATH="/Applications/Postgres.app/Contents/MacOS/bin":$PATH
+export PATH=/usr/local/bin:.:/usr/local/share/npm/bin:/bin:$PATH
+
+[[ $os = "Darwin" ]] && export PATH="/Applications/Postgres.app/Contents/MacOS/bin":$PATH
+
+if [ -s "$HOME/.rvm/scripts/rvm" ]; then
+    export PATH=$HOME/.rvm/bin:$PATH
+else
+    export PATH=$HOME/.rbenv/shims:$PATH
+fi
 
 #PATH=/usr/local/bin:$PATH:.:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
@@ -80,4 +89,4 @@ alias retag="ctags -R --exclude=.svn --exclude=.git --exclude=tmp *"
 #bindkey -v
 
 # RVM
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
