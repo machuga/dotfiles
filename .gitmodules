@@ -22,9 +22,6 @@
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
 	url = git@github.com:altercation/vim-colors-solarized.git
-[submodule "/Users/machuga/dotfiles/.vim/bundle/handlebars"]
-	path = /Users/machuga/dotfiles/.vim/bundle/handlebars
-	url = git://github.com/nono/vim-handlebars.git
 [submodule ".vim/bundle/vim-jade"]
 	path = .vim/bundle/vim-jade
 	url = git://github.com/digitaltoad/vim-jade.git
@@ -52,3 +49,9 @@
 [submodule ".vim/bundle/vim-tomorrow-theme"]
 	path = .vim/bundle/vim-tomorrow-theme
 	url = git@github.com:chriskempson/vim-tomorrow-theme.git
+[submodule ".vim/bundle/vim-handlebars"]
+	path = .vim/bundle/vim-handlebars
+	url = git@github.com:nono/vim-handlebars.git
+[submodule ".vim/bundle/vim-clojure-static"]
+	path = .vim/bundle/vim-clojure-static
+	url = git@github.com:guns/vim-clojure-static.git
