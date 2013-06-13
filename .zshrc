@@ -39,17 +39,15 @@ source $ZSH/oh-my-zsh.sh
 os=`uname -s`
 
 # Customize to your needs...
-export PATH=/usr/local/bin:.:/usr/local/share/npm/bin:/bin:$PATH
+PATH=/usr/local/bin:.:/usr/local/share/npm/bin:/bin:$PATH
 
-[[ $os = "Darwin" ]] && export PATH="/Applications/Postgres.app/Contents/MacOS/bin":$PATH
+[[ $os = "Darwin" ]] && PATH="/Applications/Postgres.app/Contents/MacOS/bin":$PATH
 
-if [ -s "$HOME/.rvm/scripts/rvm" ]; then
-    export PATH=$HOME/.rvm/bin:$PATH
+if [ -s $HOME/.rvm/scripts/rvm ]; then
+    PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 else
-    export PATH=$HOME/.rbenv/shims:$PATH
+    PATH=$HOME/.rbenv/shims:$PATH
 fi
-
-#PATH=/usr/local/bin:$PATH:.:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Environment variables
 export EDITOR="vim"
@@ -85,8 +83,9 @@ alias ls="ls -G"
 alias retag="ctags -R --exclude=.svn --exclude=.git --exclude=tmp *"
 # alias retag="ctags -R -f ./.git/tags --exclude=.svn --exclude=.git --exclude=tmp *"
 
+if [[ $os = "Darwin" ]]; then
+    alias start_pg="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+fi
+
 # Vi mode
 #bindkey -v
-
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
