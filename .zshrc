@@ -39,7 +39,7 @@ source $ZSH/oh-my-zsh.sh
 os=`uname -s`
 
 # Customize to your needs...
-PATH=/usr/local/bin:.:/usr/local/share/npm/bin:/bin:$PATH
+PATH=/usr/local/bin:/usr/bin:.:/usr/local/share/npm/bin:/bin:$PATH
 
 [[ $os = "Darwin" ]] && PATH="/Applications/Postgres.app/Contents/MacOS/bin":$PATH
 
