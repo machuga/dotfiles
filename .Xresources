@@ -1,0 +1,14 @@
+URxvt.scrollbar: false
+URxvt.font: xft:SourceCodePro-Semibold:size=14
+
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+
+URxvt*loginShell: true
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
