@@ -49,9 +49,6 @@
 [submodule ".vim/bundle/vim-tomorrow-theme"]
 	path = .vim/bundle/vim-tomorrow-theme
 	url = git@github.com:chriskempson/vim-tomorrow-theme.git
-[submodule ".vim/bundle/vim-handlebars"]
-	path = .vim/bundle/vim-handlebars
-	url = git@github.com:nono/vim-handlebars.git
 [submodule ".vim/bundle/vim-clojure-static"]
 	path = .vim/bundle/vim-clojure-static
 	url = git@github.com:guns/vim-clojure-static.git
