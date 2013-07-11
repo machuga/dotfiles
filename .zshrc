@@ -65,27 +65,10 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-# Git Aliases
-alias gs="git status"
-alias gb="git branch"
-alias ga="git add"
-alias gaa="git add -A"
-alias gco="git checkout"
-alias gcam="git commit -a -m"
-alias gffs="git flow feature start"
-alias gfff="git flow feature finish"
-alias gpusho="git push origin"
-alias gpullo="git pull origin"
-alias gpod="git push origin develop"
-alias gpom="git push origin master"
-
-alias ls="ls -G"
-alias retag="ctags -R --exclude=.svn --exclude=.git --exclude=tmp *"
-# alias retag="ctags -R -f ./.git/tags --exclude=.svn --exclude=.git --exclude=tmp *"
-
 if [[ $os = "Darwin" ]]; then
     alias start_pg="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 fi
 
+source $HOME/.zalias
 # Vi mode
 #bindkey -v
