@@ -49,6 +49,8 @@ else
     PATH=$HOME/.rbenv/shims:$PATH
 fi
 
+PATH="$HOME/.cask/bin:$PATH"
+
 # Environment variables
 export EDITOR="vim"
 #export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
