@@ -5,3 +5,4 @@
 .emacs.d/elpa
 .emacs.d/.cask
 .emacs.d/init.el~
+.emacs.d/eshell
