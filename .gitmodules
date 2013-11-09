@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/vim-handlebars"]
 	path = .vim/bundle/vim-handlebars
 	url = git@github.com:nono/vim-handlebars.git
+[submodule ".vim/bundle/ag"]
+	path = .vim/bundle/ag
+	url = git@github.com:rking/ag.vim.git
