@@ -1,5 +1,58 @@
-set nocompatible "This is just to be safe - should be implicitly included
-execute pathogen#infect()
+set nocompatible
+filetype off
+
+function! LoadVundle()
+    let vundle_installed=filereadable(expand('~/.vim/bundle/vundle/README.md'))
+
+    if vundle_installed == 0
+        echo "Creating backups directory..."
+        silent !mkdir -p ~/.vim/backups
+        echo "Installing Vundle.."
+        echo ""
+        silent !mkdir -p ~/.vim/bundle
+        silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    endif
+
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+
+    " Bundle definitions
+    Bundle 'scrooloose/syntastic'
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'slim-template/vim-slim'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-haml'
+    Bundle 'tpope/vim-rails'
+    Bundle 'tpope/vim-surround'
+    Bundle 'vim-ruby/vim-ruby'
+    Bundle 'pangloss/vim-javascript'
+    Bundle 'digitaltoad/vim-jade'
+    Bundle 'majutsushi/tagbar'
+    Bundle 'tomtom/tcomment_vim'
+    Bundle 'mileszs/ack.vim'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'chriskempson/base16-vim'
+    Bundle 'chriskempson/vim-tomorrow-theme'
+    Bundle 'altercation/vim-colors-solarized'
+    Bundle 'guns/vim-clojure-static'
+    Bundle 'elzr/vim-json'
+    Bundle 'nono/vim-handlebars'
+    Bundle 'rking/ag.vim'
+    Bundle 'kien/ctrlp.vim'
+    "Bundle 'jeetsukumaran/vim-buffergator'
+
+    if vundle_installed==0
+        echo vundle_installed
+        echo "Vundle Installed, now Installing Bundles..."
+        echo ""
+        :BundleInstall
+    endif
+
+    filetype plugin indent on
+endfunction
+
+call LoadVundle()
+
 set number
 set ruler
 syntax on
@@ -69,10 +122,6 @@ highlight Search cterm=underline
 if has('mouse')
     set mouse=a
 endif
-" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
-endif
 
 " Tab completion
 set wildmode=list:longest,list:full
@@ -97,7 +146,7 @@ set noequalalways
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
 " add json syntax highlighting
-au BufNewFile,BufRead *.json set ft=javascript
+au BufNewFile,BufRead *.json set ft=json
 
 " ejs use html
 au BufNewFile,BufRead *.ejs set filetype=html
@@ -175,3 +224,9 @@ let g:html_indent_style1 = "inc"
 map <Leader>' :TagbarToggle<CR>
 
 map <Leader>n :NERDTreeToggle<CR>
+
+" Include user's local vim config
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+
