@@ -39,6 +39,8 @@ function! LoadVundle()
     Bundle 'nono/vim-handlebars'
     Bundle 'rking/ag.vim'
     Bundle 'kien/ctrlp.vim'
+    Bundle 'SuperTab'
+    Bundle 'Tabular'
     "Bundle 'jeetsukumaran/vim-buffergator'
 
     if vundle_installed==0
@@ -217,6 +219,9 @@ endif
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
+" Ctrlp cleanup
+let g:ctrlp_custom_ignore = '\.git$\|\.o$\|\.app$\|\.beam$\|\.dSYM\|\.ipa$\|\.csv\|tags\|public\/images$\|public\/uploads$\|log\|tmp$\|source_maps\|app\/assets\/images\|test\/reports\|node_modules\|bower_components'
 
 " ZoomWin configuration
 " ZoomWin gives me too much shit lately to be useful
