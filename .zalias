@@ -5,12 +5,8 @@ alias ga="git add"
 alias gaa="git add -A"
 alias gco="git checkout"
 alias gcam="git commit -a -m"
-alias gffs="git flow feature start"
-alias gfff="git flow feature finish"
 alias gpusho="git push origin"
-alias gpullo="git pull origin"
-alias gpod="git push origin develop"
-alias gpom="git push origin master"
+alias g="git"
 
 # Other aliases
 alias ls="ls -G"

@@ -5,21 +5,21 @@
 [color]
     ui = auto
 [alias]
-    st = status
-    ci = commit
-    co = checkout
-    di = diff
-    dc = diff --cached
-    amend = commit --amend
-    aa = add --all
-    ff = merge --ff-only
+    st     = status
+    ci     = commit
+    co     = checkout
+    di     = diff
+    dc     = diff --cached
+    amend  = commit --amend
+    aa     = add --all
+    ff     = merge --ff-only
     pullff = pull --ff-only
-    noff = merge --no-ff
-    fa = fetch --all
-    pom = push origin master
-    b = branch
-    ds = diff --stat=160,120
-    dh1 = diff HEAD~1
+    noff   = merge --no-ff
+    fa     = fetch --all
+    pom    = push origin master
+    b      = branch
+    ds     = diff --stat=160,120
+    dh1    = diff HEAD~1
 
     # Divergence (commits we added and commits remote added)
     div = divergence
@@ -28,6 +28,29 @@
     gn = goodness
     gnc = goodness --cached
 
+    head   = !git l -1
+    h      = !git head
+    hp     = "!. ~/.githelpers && show_git_head"
+    r      = !git l -30
+    ra     = !git r --all
+    l      = "!. ~/.githelpers && pretty_git_log"
+    la     = !git l --all
+    s      = status
+    c      = commit -a
+    bd     = branch -d
+    co     = checkout
+    cob    = checkout -b
+    g      = grep --break --heading --line-number -i
+    lg     = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
+    ls     = log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate
+    ll     = log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat
+    lnc    = log --pretty=format:'%h %s [%cn]'
+    lds    = log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=short
+    ld     = log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=relative
+    lb     = log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat
+    le     = log --oneline --decorate
+    shorts = config --get-regexp alias
+
     # Fancy logging.
     #   h = head
     #   hp = head with patch
@@ -35,13 +58,6 @@
     #   ra = recent commits, all reachable refs
     #   l = all commits, only current branch
     #   la = all commits, all reachable refs
-    head = !git l -1
-    h = !git head
-    hp = "!. ~/.githelpers && show_git_head"
-    r = !git l -30
-    ra = !git r --all
-    l = "!. ~/.githelpers && pretty_git_log"
-    la = !git l --all
 
 [merge]
     tool = vimdiff
