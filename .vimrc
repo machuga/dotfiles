@@ -41,6 +41,7 @@ function! LoadVundle()
     Bundle 'kien/ctrlp.vim'
     Bundle 'SuperTab'
     Bundle 'Tabular'
+
     "Bundle 'jeetsukumaran/vim-buffergator'
 
     if vundle_installed==0
