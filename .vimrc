@@ -154,6 +154,9 @@ au BufNewFile,BufRead *.json set ft=json
 " ejs use html
 au BufNewFile,BufRead *.ejs set filetype=html
 
+" .html.slim are slim
+au BufNewFile,BufRead *.html.slim set ft=slim
+
 " make uses real tabs
 au FileType make set noexpandtab
 
