@@ -230,8 +230,25 @@ map <Leader>' :TagbarToggle<CR>
 
 map <Leader>n :NERDTreeToggle<CR>
 
+map <Leader>src :source ~/.vimrc<CR>
+
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 
+function! ToggleFolding()
+    let curr_fold=&foldmethod
+    let en='off'
+
+    if curr_fold == 'syntax'
+        :setlocal foldmethod=manual
+    else
+        let en='on'
+        :setlocal foldmethod=syntax
+    endif
+
+    echo "Toggled folding ".en
+endfunction
+
+map <Leader>tf :call ToggleFolding()<CR>

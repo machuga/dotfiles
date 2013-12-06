@@ -10,8 +10,9 @@ alias g="git"
 
 # Other aliases
 alias ls="ls -G"
-alias retag="ctags -R --exclude=.svn --exclude=.git --exclude=tmp *"
+alias retag="ctags -R --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *"
 # alias retag="ctags -R -f ./.git/tags --exclude=.svn --exclude=.git --exclude=tmp *"
 
 alias be="bundle exec"
 alias src="source ~/.zshrc"
+alias spec="bundle exec rspec"

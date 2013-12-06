@@ -72,5 +72,9 @@ if [[ $os = "Darwin" ]]; then
 fi
 
 source $HOME/.zalias
+
+if [ -s $HOME/.private_env ]; then
+    source $HOME/.private_env
+fi
 # Vi mode
 #bindkey -v
