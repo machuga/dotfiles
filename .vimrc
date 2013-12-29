@@ -24,6 +24,7 @@ function! LoadVundle()
     Bundle 'tpope/vim-haml'
     Bundle 'tpope/vim-rails'
     Bundle 'tpope/vim-surround'
+    Bundle 'tpope/vim-repeat'
     Bundle 'vim-ruby/vim-ruby'
     Bundle 'pangloss/vim-javascript'
     Bundle 'digitaltoad/vim-jade'
@@ -57,6 +58,7 @@ endfunction
 call LoadVundle()
 
 set number
+set relativenumber
 set ruler
 syntax on
 
