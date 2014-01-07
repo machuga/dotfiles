@@ -42,6 +42,7 @@ function! LoadVundle()
     Bundle 'kien/ctrlp.vim'
     Bundle 'SuperTab'
     Bundle 'Tabular'
+    Bundle 'airblade/vim-gitgutter'
 
     "Bundle 'jeetsukumaran/vim-buffergator'
 
