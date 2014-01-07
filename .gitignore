@@ -3,6 +3,7 @@
 !.vim/backups/.gitkeep
 .emacs.d/auto-save-list/*
 .emacs.d/elpa
+.emacs.d/el-get
 .emacs.d/.cask
 .emacs.d/init.el~
 .emacs.d/eshell
