@@ -43,7 +43,6 @@ function! LoadVundle()
     Bundle 'SuperTab'
     Bundle 'Tabular'
     Bundle 'airblade/vim-gitgutter'
-
     "Bundle 'jeetsukumaran/vim-buffergator'
 
     if vundle_installed==0
@@ -238,6 +237,7 @@ map <Leader>' :TagbarToggle<CR>
 map <Leader>n :NERDTreeToggle<CR>
 
 map <Leader>src :source ~/.vimrc<CR>
+map <Leader>esrc :tabnew ~/.vimrc<CR>
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))

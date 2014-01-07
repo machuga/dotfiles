@@ -7,6 +7,7 @@ alias gco="git checkout"
 alias gcam="git commit -a -m"
 alias gpusho="git push origin"
 alias g="git"
+alias co="git co"
 
 # Other aliases
 alias ls="ls -G"
