@@ -1,9 +1,10 @@
 .netrwhist
 .vim/backups/*
 !.vim/backups/.gitkeep
-.emacs.d/auto-save-list/*
-.emacs.d/elpa
-.emacs.d/el-get
-.emacs.d/.cask
-.emacs.d/init.el~
-.emacs.d/eshell
+.emacs.d/
+!.emacs.d/inits
+!.emacs.d/recipes
+!.emacs.d/init.el
+!.emacs.d/evil-bindings.el
+!.emacs.d/my-defuns.el
+!.emacs.d/display.el

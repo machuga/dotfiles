@@ -60,6 +60,7 @@ call LoadVundle()
 set number
 set relativenumber
 set ruler
+set hidden
 syntax on
 
 " Set encoding
@@ -198,10 +199,13 @@ nnoremap ,L <C-W>L
 nnoremap <Leader>] :noh <CR>
 nnoremap <Leader>p :set paste<CR>
 nnoremap <Leader>o :set nopaste<CR>
+nnoremap <Leader>bn :bn<CR>
+nnoremap <Leader>bp :bp<CR>
+nnoremap <Leader>bd :bd<CR>
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
-set shell=/bin/zsh
+set shell=zsh\ -l
 
 
 " Package specific bindings
