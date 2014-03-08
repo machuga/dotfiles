@@ -30,7 +30,7 @@ function! LoadVundle()
     Bundle 'digitaltoad/vim-jade'
     Bundle 'majutsushi/tagbar'
     Bundle 'tomtom/tcomment_vim'
-    Bundle 'mileszs/ack.vim'
+    "Bundle 'mileszs/ack.vim'
     Bundle 'scrooloose/nerdtree'
     Bundle 'chriskempson/base16-vim'
     Bundle 'chriskempson/vim-tomorrow-theme'
@@ -261,7 +261,6 @@ vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
 set shell=zsh\ -l
-
 
 " Package specific bindings
 if exists(":Tabularize")
