@@ -39,10 +39,12 @@ function! LoadVundle()
     Bundle 'elzr/vim-json'
     Bundle 'nono/vim-handlebars'
     Bundle 'rking/ag.vim'
-    Bundle 'kien/ctrlp.vim'
+    "Bundle 'kien/ctrlp.vim'
+    Bundle 'Shougo/unite.vim'
+    Bundle 'Shougo/vimproc.vim'
     Bundle 'SuperTab'
     Bundle 'Tabular'
-    Bundle 'airblade/vim-gitgutter'
+    "Bundle 'airblade/vim-gitgutter'
     "Bundle 'jeetsukumaran/vim-buffergator'
 
     if vundle_installed==0
@@ -232,6 +234,52 @@ let g:html_indent_style1 = "inc"
 
 " Ctrlp cleanup
 let g:ctrlp_custom_ignore = '\.git$\|\.o$\|\.app$\|\.beam$\|\.dSYM\|\.ipa$\|\.csv\|tags\|public\/images$\|public\/uploads$\|log\|tmp$\|source_maps\|app\/assets\/images\|test\/reports\|node_modules\|bower_components'
+
+" Unite
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight = 10
+let g:unite_source_grep_command = 'ag'
+
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ '\.git/',
+      \ '\.o/',
+      \ '\.app/',
+      \ 'app\/assets\/images/',
+      \ 'test\/reports/',
+      \ 'node_modules',
+      \ 'bower_components',
+      \ 'tags',
+      \ ], '\|'))
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+" replace CtrlP with Unite
+"nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <C-p> :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
+
+autocmd FileType unite call s:unite_settings()
+
+function! s:unite_settings()
+  let b:SuperTabDisabled=1
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  imap <silent><buffer><expr> <C-x> unite#do_action('split')
+  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
+
+" Other stuff
+nnoremap <space>/ :Unite grep:.<cr>
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
 
 " ZoomWin configuration
 " ZoomWin gives me too much shit lately to be useful

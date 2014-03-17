@@ -76,5 +76,13 @@ source $HOME/.zalias
 if [ -s $HOME/.private_env ]; then
     source $HOME/.private_env
 fi
+
+function gg() {
+    git grep --break --heading --line-number "$@" ;
+}
+
+function gg-open() {
+    vim $(git grep -l "$@") ;
+}
 # Vi mode
 #bindkey -v
