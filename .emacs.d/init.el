@@ -1,22 +1,9 @@
+;; Package management
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (require 'package)
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("org" . "http://orgmode.org/elpa/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
-(package-initialize)
-
-;; UTF-8 Encoding
-(prefer-coding-system       'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-
-;; Package management
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -24,9 +11,12 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
-;; load up some more various configs and modes
-(mapc 'require
-      '(cl my-defuns uniquify display))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("org" . "http://orgmode.org/elpa/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(package-initialize)
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
 
@@ -38,15 +28,29 @@
  my-packages '(evil
                powerline
                magit
+               fiplr
                evil-surround evil-leader evil-numbers
                ;;php-mode-improved php-completion
                shell-switcher
                ruby-mode inf-ruby ruby-end rinari rspec-mode
                ibuffer-vc
                js2-mode js-comint
+               coffee-mode
                yaml-mode haml-mode markdown-mode ;; slim-mode
                color-theme-almost-monokai
-               scss-mode css-mode)
+               scss-mode css-mode))
+
+;; load up some more various configs and modes
+(mapc 'require
+      '(cl my-defuns uniquify display))
+
+;; UTF-8 Encoding
+(prefer-coding-system       'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+
+(setq
  ;; backups
  backup-directory-alist `((".*" . ,temporary-file-directory))
  auto-save-file-name-transforms `((".*" ,temporary-file-directory))
@@ -58,12 +62,21 @@
  uniquify-separator ":"
 
  mac-option-modifier 'meta
- mac-command-modifier 'meta
+ ;;mac-command-modifier 'meta
 
+ ;; Silence that damn bell
+ bell-volume 0
+ 
+ ;; Show time in modeline
+ display-time-mode 1
+
+ ;; Don't use lockfiles
+ create-lockfiles nil
  ;; tramp
  tramp-default-method "ssh"
 
  inhibit-splash-screen t
+ inhibit-startup-message t
 
  shell-prompt-pattern "^[^a-zA-Z].*[#$%>] *"
 

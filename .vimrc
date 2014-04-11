@@ -101,6 +101,59 @@ set showcmd
 set modeline
 set modelines=10
 
+" Insert only one space when joining lines with terminating punctuation
+set nojoinspaces
+
+" Automatically reload files changed outside of vim
+set autoread
+
+" Display incomplete commands
+set showcmd
+
+" Keep more context when scrolling off the end of a buffer
+set scrolloff=3
+
+" Yank to platform clipboard
+map <leader>y "*y
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Open files relative to current
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rename Current File
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RemoveFancyCharacters COMMAND
+" Remove smart quotes, etc.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RemoveFancyCharacters()
+    let typo = {}
+    let typo["“"] = '"'
+    let typo["”"] = '"'
+    let typo["‘"] = "'"
+    let typo["’"] = "'"
+    let typo["–"] = '--'
+    let typo["—"] = '---'
+    let typo["…"] = '...'
+    :exe ":%s/".join(keys(typo), '\|').'/\=typo[submatch(0)]/ge'
+endfunction
+command! RemoveFancyCharacters :call RemoveFancyCharacters()
+
 "if &term != "xterm-color"
     "if has("gui-running")
         "let g:solarized_termcolors=256
@@ -112,7 +165,7 @@ set modelines=10
         "colorscheme grb256
     "endif
 "else
-    set t_Co=16
+    set t_Co=256
     set background=dark
     colorscheme base16-tomorrow
 "endif

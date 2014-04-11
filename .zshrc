@@ -39,7 +39,7 @@ source $ZSH/oh-my-zsh.sh
 os=`uname -s`
 
 # Customize to your needs...
-PATH=/usr/local/bin:/usr/bin:.:/usr/local/share/npm/bin:/bin:$PATH
+PATH=$HOME/bin:/usr/local/bin:/usr/bin:.:/usr/local/share/npm/bin:/bin:$PATH
 
 [[ $os = "Darwin" ]] && PATH="/Applications/Postgres.app/Contents/MacOS/bin":$PATH
 
@@ -48,8 +48,6 @@ if [ -s $HOME/.rvm/scripts/rvm ]; then
 else
     PATH=$HOME/.rbenv/shims:$PATH
 fi
-
-PATH="$HOME/.cask/bin:$PATH"
 
 # Environment variables
 export EDITOR="vim"
@@ -83,6 +81,11 @@ function gg() {
 
 function gg-open() {
     vim $(git grep -l "$@") ;
+}
+
+function mkalias() {
+    echo "alias $1=\"${@:2}\"" >> ~/.zalias
+    source ~/.zalias
 }
 # Vi mode
 #bindkey -v

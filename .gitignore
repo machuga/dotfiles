@@ -8,3 +8,4 @@
 !.emacs.d/evil-bindings.el
 !.emacs.d/my-defuns.el
 !.emacs.d/display.el
+*.elc

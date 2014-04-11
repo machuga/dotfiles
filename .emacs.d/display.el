@@ -1,8 +1,6 @@
 (custom-set-faces
  '(default ((t (:family "Inconsolata" :foundry nil :slant normal :weight normal :height 150 :width normal)))))
 
-(setq inhibit-startup-message t)
-
 ;(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -15,7 +13,7 @@
             ; always fullscreen
 
   ;(setq ns-use-native-fullscreen nil)
-  (set-frame-parameter nil 'fullscreen 'fullboth)
+  ;(set-frame-parameter nil 'fullscreen 'fullboth)
   ;;(set-frame-parameter (selected-frame) 'alpha '(90 50))
   ;;(add-to-list 'default-frame-alist '(alpha 80 70))
 
