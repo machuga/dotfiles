@@ -50,6 +50,10 @@ else
 fi
 
 # Environment variables
+if command -v nvim >/dev/null 2>&1 ; then
+    export VIM="/usr/local/share/vim"
+    alias vim="nvim"
+fi
 export EDITOR="vim"
 #export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
