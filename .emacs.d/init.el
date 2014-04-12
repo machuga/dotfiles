@@ -2,7 +2,6 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-(require 'package)
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -16,6 +15,7 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")
                          ("org" . "http://orgmode.org/elpa/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
+(require 'package)
 (package-initialize)
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
