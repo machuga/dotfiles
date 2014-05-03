@@ -29,6 +29,8 @@
                powerline
                magit
                fiplr
+               auto-complete
+               flycheck
                evil-surround evil-leader evil-numbers
                ;;php-mode-improved php-completion
                shell-switcher
@@ -43,6 +45,8 @@
 ;; load up some more various configs and modes
 (mapc 'require
       '(cl my-defuns uniquify display))
+
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 
 ;; UTF-8 Encoding
 (prefer-coding-system       'utf-8)
@@ -66,7 +70,8 @@
 
  ;; Silence that damn bell
  bell-volume 0
- 
+ ring-bell-function 'ignore
+
  ;; Show time in modeline
  display-time-mode 1
 
@@ -92,7 +97,8 @@
 (setq-default
  indent-tabs-mode nil
  truncate-lines t
- tab-width 2)
+ tab-width 2
+ coffee-tab-width 2)
 
 (show-paren-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -111,5 +117,12 @@
 (global-set-key (kbd "<f1>") 'magit-status)
 
 (set-frame-font "Inconsolata-g-15" nil)
+
+(let ((path (shell-command-to-string ". ~/.zshenv; echo -n $PATH")))
+  (setenv "PATH" path)
+  (setq exec-path
+        (append
+         (split-string-and-unquote path ":")
+         exec-path)))
 
 (load "evil-bindings.el")

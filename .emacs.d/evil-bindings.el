@@ -7,3 +7,5 @@
 (define-key evil-normal-state-map ",K" 'evil-window-move-very-top)
 (define-key evil-normal-state-map ",H" 'evil-window-move-far-left)
 (define-key evil-normal-state-map ",L" 'evil-window-move-far-right)
+
+;; (define-key evil-insert-state-map "<tab>" 'evil-complete-previous) ;; Needs work
