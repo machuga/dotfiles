@@ -71,7 +71,7 @@
  ;; Silence that damn bell
  bell-volume 0
  ring-bell-function 'ignore
-
+ 
  ;; Show time in modeline
  display-time-mode 1
 
