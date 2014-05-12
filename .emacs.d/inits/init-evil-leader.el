@@ -4,4 +4,6 @@
 (evil-leader/set-key
   "b" 'ibuffer
   "e" 'eval-buffer
-  "f" 'fiplr-find-file)
+  "g" 'magit-status
+  "f" 'fiplr-find-file
+  "w" 'whitespace-cleanup)

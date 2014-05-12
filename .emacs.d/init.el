@@ -125,4 +125,6 @@
          (split-string-and-unquote path ":")
          exec-path)))
 
+
 (load "evil-bindings.el")
+(load "term-bindings.el")
