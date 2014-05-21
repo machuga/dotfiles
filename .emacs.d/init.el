@@ -31,6 +31,7 @@
                fiplr
                auto-complete
                flycheck
+               web-mode
                evil-surround evil-leader evil-numbers
                ;;php-mode-improved php-completion
                shell-switcher
