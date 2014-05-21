@@ -8,4 +8,5 @@
 !.emacs.d/evil-bindings.el
 !.emacs.d/my-defuns.el
 !.emacs.d/display.el
+!.emacs.d/term-bindings.el
 .emacs.d/inits/*.elc
