@@ -32,6 +32,8 @@
                auto-complete
                flycheck
                web-mode
+               ag
+               slim-mode
                evil-surround evil-leader evil-numbers
                ;;php-mode-improved php-completion
                shell-switcher
