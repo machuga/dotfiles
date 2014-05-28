@@ -35,7 +35,7 @@
                ag
                slim-mode
                evil-surround evil-leader evil-numbers
-               ;;php-mode-improved php-completion
+               php-mode-improved php-completion
                shell-switcher
                ruby-mode inf-ruby ruby-end rinari rspec-mode
                ibuffer-vc
