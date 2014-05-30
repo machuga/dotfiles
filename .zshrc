@@ -41,6 +41,9 @@ os=`uname -s`
 # Customize to your needs...
 [[ -s $HOME/.zshenv ]] && source $HOME/.zshenv
 
+# Load zprofile
+#[[ -s $HOME/.zprofile ]] && source $HOME/.zprofile
+
 # Environment variables
 if command -v nvim >/dev/null 2>&1 ; then
     export VIM="/usr/local/share/vim"
