@@ -38,6 +38,7 @@
                php-mode-improved php-completion
                shell-switcher
                ruby-mode inf-ruby ruby-end rinari rspec-mode
+               highlight-indentation-mode
                ibuffer-vc
                js2-mode js-comint
                coffee-mode
@@ -119,7 +120,8 @@
 (global-set-key (kbd "M-ESC") 'jump-to-end)
 (global-set-key (kbd "<f1>") 'magit-status)
 
-(set-frame-font "Inconsolata-g-15" nil)
+;;(set-frame-font "Inconsolata-g-15" nil)
+(set-face-attribute 'default nil :font  "Monaco-14")
 
 (let ((path (shell-command-to-string ". ~/.zshenv; echo -n $PATH")))
   (setenv "PATH" path)
