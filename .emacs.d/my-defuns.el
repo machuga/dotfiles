@@ -1,5 +1,10 @@
 ;;; some generic-ish functions
 
+(defun open-init-file ()
+  "Open default init file"
+  (interactive)
+  (find-file "~/.emacs.d/init.el") nil)
+
 (defun ido-find-file-in-tag-files ()
       (interactive)
       (save-excursion

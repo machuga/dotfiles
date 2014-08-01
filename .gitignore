@@ -9,4 +9,5 @@
 !.emacs.d/my-defuns.el
 !.emacs.d/display.el
 !.emacs.d/term-bindings.el
+!.emacs.d/bootstrap-packages.el
 .emacs.d/inits/*.elc
