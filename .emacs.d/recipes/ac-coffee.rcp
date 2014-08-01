@@ -1,0 +1,4 @@
+(:name ac-coffee
+ :type git
+ :url "git://github.com/akfish/ac-coffee.git"
+ :features ac-coffee)
