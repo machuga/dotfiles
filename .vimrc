@@ -17,41 +17,43 @@ function! LoadVundle()
     call vundle#rc()
 
     " Bundle definitions
-    Bundle 'scrooloose/syntastic'
-    Bundle 'kchmck/vim-coffee-script'
-    Bundle 'slim-template/vim-slim'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'tpope/vim-haml'
-    Bundle 'tpope/vim-rails'
-    Bundle 'tpope/vim-surround'
-    Bundle 'tpope/vim-repeat'
-    Bundle 'vim-ruby/vim-ruby'
-    Bundle 'pangloss/vim-javascript'
-    Bundle 'digitaltoad/vim-jade'
-    Bundle 'majutsushi/tagbar'
-    Bundle 'tomtom/tcomment_vim'
-    "Bundle 'mileszs/ack.vim'
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'chriskempson/base16-vim'
-    Bundle 'chriskempson/vim-tomorrow-theme'
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'guns/vim-clojure-static'
-    Bundle 'elzr/vim-json'
-    Bundle 'nono/vim-handlebars'
-    Bundle 'rking/ag.vim'
-    "Bundle 'kien/ctrlp.vim'
-    Bundle 'Shougo/unite.vim'
-    Bundle 'Shougo/vimproc.vim'
-    Bundle 'SuperTab'
-    Bundle 'Tabular'
-    "Bundle 'airblade/vim-gitgutter'
-    "Bundle 'jeetsukumaran/vim-buffergator'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'kchmck/vim-coffee-script'
+    Plugin 'slim-template/vim-slim'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'tpope/vim-haml'
+    Plugin 'tpope/vim-rails'
+    Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'vim-ruby/vim-ruby'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'digitaltoad/vim-jade'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'tomtom/tcomment_vim'
+    "Plugin 'mileszs/ack.vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'chriskempson/base16-vim'
+    Plugin 'chriskempson/vim-tomorrow-theme'
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'guns/vim-clojure-static'
+    Plugin 'elzr/vim-json'
+    Plugin 'nono/vim-handlebars'
+    Plugin 'xsbeats/vim-blade'
+    Plugin 'rking/ag.vim'
+    "Plugin 'kien/ctrlp.vim'
+    Plugin 'Shougo/unite.vim'
+    Plugin 'Shougo/vimproc.vim'
+    Plugin 'SuperTab'
+    Plugin 'Tabular'
+    "Plugin 'airblade/vim-gitgutter'
+    "Plugin 'jeetsukumaran/vim-buffergator'
 
     if vundle_installed==0
         echo vundle_installed
         echo "Vundle Installed, now Installing Bundles..."
         echo ""
         :BundleInstall
+        silent !make -C ~/.vim/bundle/vimproc.vim
     endif
 
     filetype plugin indent on
@@ -175,7 +177,7 @@ set directory=~/.vim/backups
 
 " Code folding
 set foldenable
-nnoremap <leader>ft Vatzf
+"nnoremap <leader>ft Vatzf
 
 "set cursorline
 highlight Search cterm=underline
@@ -313,6 +315,7 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 " replace CtrlP with Unite
 "nnoremap <C-p> :Unite file_rec/async<cr>
 nnoremap <C-p> :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
+nnoremap <Leader>f :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
 
 autocmd FileType unite call s:unite_settings()
 
