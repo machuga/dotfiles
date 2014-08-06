@@ -6,10 +6,10 @@
     (eval-print-last-sexp)))
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")
-			 ("org" . "http://orgmode.org/elpa/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")))
+       ("marmalade" . "http://marmalade-repo.org/packages/")
+       ("melpa" . "http://melpa.milkbox.net/packages/")
+       ("org" . "http://orgmode.org/elpa/")))
+
 (require 'package)
 (package-initialize)
 
@@ -21,26 +21,26 @@
  el-get-user-package-directory "~/.emacs.d/inits"
 
  my-packages '(evil
-	       powerline
-	       magit
-	       fiplr
-	       auto-complete
-	       flycheck
-	       handlebars-mode
-	       web-mode
-	       ag
-	       slim-mode
-	       evil-leader evil-numbers
-	       evil-surround
-	       php-mode-improved php-completion
-	       shell-switcher
-	       ruby-mode inf-ruby ruby-end rinari rspec-mode
-	       ibuffer-vc
-	       js2-mode js-comint
-	       coffee-mode
-	       ac-coffee
-	       yaml-mode haml-mode markdown-mode ;; slim-mode
-	       ;color-theme-almost-monokai
-	       scss-mode css-mode))
+         powerline
+         magit
+         fiplr
+         auto-complete
+         flycheck
+         handlebars-mode
+         web-mode
+         ag
+         slim-mode
+         evil-leader evil-numbers
+         evil-surround
+         php-mode-improved php-completion
+         shell-switcher
+         ruby-mode inf-ruby ruby-end rinari rspec-mode
+         ibuffer-vc
+         js2-mode js-comint
+         coffee-mode
+         ac-coffee
+         yaml-mode haml-mode markdown-mode ;; slim-mode
+         color-theme-almost-monokai
+         scss-mode css-mode))
 
 (provide 'bootstrap-packages)
