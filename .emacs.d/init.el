@@ -38,12 +38,12 @@
                php-mode-improved php-completion
                shell-switcher
                ruby-mode inf-ruby ruby-end rinari rspec-mode
-               highlight-indentation-mode
+               highlight-indentation
                ibuffer-vc
                js2-mode js-comint
                coffee-mode
                yaml-mode haml-mode markdown-mode ;; slim-mode
-               color-theme-almost-monokai
+               ;;color-theme-almost-monokai
                scss-mode css-mode))
 
 ;; load up some more various configs and modes
@@ -59,6 +59,9 @@
 (set-keyboard-coding-system 'utf-8)
 
 (setq
+ ;; Ctags
+ path-to-ctags "/usr/local/bin/ctags"
+
  ;; backups
  backup-directory-alist `((".*" . ,temporary-file-directory))
  auto-save-file-name-transforms `((".*" ,temporary-file-directory))

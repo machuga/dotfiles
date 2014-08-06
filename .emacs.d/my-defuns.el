@@ -1,5 +1,11 @@
 ;;; some generic-ish functions
 
+(defun create-tags (dir-name)
+  "Create tags file."
+  (interactive "DDirectory: ")
+  (shell-command
+   (format "ctags -f tags -e -R %s --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *" (directory-file-name dir-name))))
+
 (defun ido-find-file-in-tag-files ()
       (interactive)
       (save-excursion
