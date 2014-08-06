@@ -1,2 +1,2 @@
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-;;(js2-mode-hide-warnings-and-errors)
+(add-to-list 'auto-mode-alist '("\\.js$" "\\.json$" . js2-mode))
+(setq-default js2-basic-offset 2)

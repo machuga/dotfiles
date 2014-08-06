@@ -6,6 +6,11 @@
   (shell-command
    (format "ctags -f tags -e -R %s --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *" (directory-file-name dir-name))))
 
+(defun open-init-file ()
+  "Open default init file"
+  (interactive)
+  (find-file "~/.emacs.d/init.el") nil)
+
 (defun ido-find-file-in-tag-files ()
       (interactive)
       (save-excursion
