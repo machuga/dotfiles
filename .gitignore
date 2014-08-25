@@ -1,13 +1,8 @@
 .netrwhist
 .vim/backups/*
 !.vim/backups/.gitkeep
-.emacs.d/
-!.emacs.d/inits
-!.emacs.d/recipes
-!.emacs.d/init.el
-!.emacs.d/evil-bindings.el
-!.emacs.d/my-defuns.el
-!.emacs.d/display.el
-!.emacs.d/term-bindings.el
-!.emacs.d/bootstrap-packages.el
+*.elc
+.emacs.d/ac-comphist.dat
+.emacs.d/elpa
+.emacs.d/github-packages
 .emacs.d/inits/*.elc

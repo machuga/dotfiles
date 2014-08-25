@@ -1,1 +1,0 @@
-(color-theme-ir-black)

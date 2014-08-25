@@ -47,7 +47,7 @@
   (let ((match (assoc key alist)))
     (if match
         (cdr match)
-      default)))  
+      default)))
 
 (defun take (n lst)
   "Return atmost the first `N' items of `LST'."
@@ -97,4 +97,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
     (abort-recursive-edit)))
 
-(provide 'my-defuns)
+(defun to-string (item)
+  (if (symbolp item)
+      (symbol-name (item))
+    item))
+
+(provide 'tweaks)

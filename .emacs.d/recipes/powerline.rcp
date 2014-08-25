@@ -1,4 +1,0 @@
-(:name powerline
- :type git
- :url "git://github.com/steveerhart/emacs-powerline.git"
- :features powerline)
