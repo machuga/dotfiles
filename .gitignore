@@ -6,3 +6,4 @@
 .emacs.d/elpa
 .emacs.d/github-packages
 .emacs.d/inits/*.elc
+.emacs.d/auto-save-list
