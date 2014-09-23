@@ -12,6 +12,6 @@ if [ "$PATHS" != "true" ]; then
     fi
 
     # Load PATH into OS X
-    p = $(launchctl getenv PATH)
-    launchctl setenv PATH $PATH:$p
+    #p = $(launchctl getenv PATH)
+    #launchctl setenv PATH $PATH:$p
 fi
