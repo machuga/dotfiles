@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+let mapleader = "\<Space>"
 
 function! LoadVundle()
     let vundle_installed=filereadable(expand('~/.vim/bundle/vundle/README.md'))
@@ -30,7 +31,6 @@ function! LoadVundle()
     Plugin 'digitaltoad/vim-jade'
     Plugin 'majutsushi/tagbar'
     Plugin 'tomtom/tcomment_vim'
-    "Plugin 'mileszs/ack.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'chriskempson/base16-vim'
     Plugin 'chriskempson/vim-tomorrow-theme'
@@ -40,11 +40,12 @@ function! LoadVundle()
     Plugin 'nono/vim-handlebars'
     Plugin 'xsbeats/vim-blade'
     Plugin 'rking/ag.vim'
-    "Plugin 'kien/ctrlp.vim'
-    Plugin 'Shougo/unite.vim'
-    Plugin 'Shougo/vimproc.vim'
+    Plugin 'kien/ctrlp.vim'
+    "Plugin 'Shougo/unite.vim'
+    "Plugin 'Shougo/vimproc.vim'
     Plugin 'SuperTab'
     Plugin 'Tabular'
+    Plugin 'fatih/vim-go'
     "Plugin 'airblade/vim-gitgutter'
     "Plugin 'jeetsukumaran/vim-buffergator'
 
@@ -137,7 +138,7 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <leader>n :call RenameFile()<cr>
+map <leader>rn :call RenameFile()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RemoveFancyCharacters COMMAND
@@ -245,22 +246,27 @@ vmap <C-Down> ]egv
 
 
 " Key mappings
-nnoremap ,h <C-W>h
-nnoremap ,j <C-W>j
-nnoremap ,k <C-W>k
-nnoremap ,l <C-W>l
-nnoremap ,H <C-W>H
-nnoremap ,J <C-W>J
-nnoremap ,K <C-W>K
-nnoremap ,L <C-W>L
+
+nnoremap <Leader>h <C-W>h
+nnoremap <Leader>j <C-W>j
+nnoremap <Leader>k <C-W>k
+nnoremap <Leader>l <C-W>l
+nnoremap <Leader>H <C-W>H
+nnoremap <Leader>J <C-W>J
+nnoremap <Leader>K <C-W>K
+nnoremap <Leader>L <C-W>L
 nnoremap <Leader>] :noh <CR>
 nnoremap <Leader>p :set paste<CR>
 nnoremap <Leader>o :set nopaste<CR>
 nnoremap <Leader>bn :bn<CR>
 nnoremap <Leader>bp :bp<CR>
 nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>q  :q<CR>
+nnoremap <Leader>w  :w<CR>
+nnoremap <Leader>x  :wq<CR>
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
+
 
 set shell=zsh\ -l
 
@@ -287,54 +293,55 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 " Ctrlp cleanup
-let g:ctrlp_custom_ignore = '\.git$\|\.o$\|\.app$\|\.beam$\|\.dSYM\|\.ipa$\|\.csv\|tags\|public\/images$\|public\/uploads$\|log\|tmp$\|source_maps\|app\/assets\/images\|test\/reports\|node_modules\|bower_components'
+let g:ctrlp_custom_ignore = '\.git$\|\.o$\|\.app$\|\.beam$\|\.dSYM\|\.ipa$\|\.csv\|tags\|public\/images$\|public\/uploads$\|log\|tmp$\|source_maps\|app\/assets\/images\|test\/reports\|node_modules\|bower_components\|vendor'
+nnoremap <Leader>f :CtrlP<CR>
 
 " Unite
-let g:unite_enable_start_insert = 1
-let g:unite_split_rule = "botright"
-let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight = 10
-let g:unite_source_grep_command = 'ag'
-
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-      \ 'ignore_pattern', join([
-      \ '\.git/',
-      \ '\.git/',
-      \ '\.o/',
-      \ '\.app/',
-      \ 'app\/assets\/images/',
-      \ 'test\/reports/',
-      \ 'node_modules',
-      \ 'bower_components',
-      \ 'tags',
-      \ ], '\|'))
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
+" let g:unite_enable_start_insert = 1
+" let g:unite_split_rule = "botright"
+" let g:unite_force_overwrite_statusline = 0
+" let g:unite_winheight = 10
+" let g:unite_source_grep_command = 'ag'
+" 
+" call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+"       \ 'ignore_pattern', join([
+"       \ '\.git/',
+"       \ '\.git/',
+"       \ '\.o/',
+"       \ '\.app/',
+"       \ 'app\/assets\/images/',
+"       \ 'test\/reports/',
+"       \ 'node_modules',
+"       \ 'bower_components',
+"       \ 'tags',
+"       \ ], '\|'))
+" 
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" call unite#filters#sorter_default#use(['sorter_rank'])
 
 " replace CtrlP with Unite
 "nnoremap <C-p> :Unite file_rec/async<cr>
-nnoremap <C-p> :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
-nnoremap <Leader>f :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
+"nnoremap <C-p> :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
+"nnoremap <Leader>f :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
 
-autocmd FileType unite call s:unite_settings()
+" autocmd FileType unite call s:unite_settings()
 
-function! s:unite_settings()
-  let b:SuperTabDisabled=1
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-  imap <silent><buffer><expr> <C-x> unite#do_action('split')
-  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-
-  nmap <buffer> <ESC> <Plug>(unite_exit)
-endfunction
+" function! s:unite_settings()
+"   let b:SuperTabDisabled=1
+"   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+"   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+"   imap <silent><buffer><expr> <C-x> unite#do_action('split')
+"   imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+"   imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+" 
+"   nmap <buffer> <ESC> <Plug>(unite_exit)
+" endfunction
 
 " Other stuff
-nnoremap <space>/ :Unite grep:.<cr>
-let g:unite_source_history_yank_enable = 1
-nnoremap <space>y :Unite history/yank<cr>
-nnoremap <space>s :Unite -quick-match buffer<cr>
+" nnoremap <space>/ :Unite grep:.<cr>
+" let g:unite_source_history_yank_enable = 1
+" nnoremap <space>y :Unite history/yank<cr>
+" nnoremap <space>s :Unite -quick-match buffer<cr>
 
 " ZoomWin configuration
 " ZoomWin gives me too much shit lately to be useful
