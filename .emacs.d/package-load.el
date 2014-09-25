@@ -10,39 +10,30 @@
 
 (add-to-list 'load-path "~/.emacs.d/github-packages/")
 
-;; evil
-;; powerline
-;; magit
-;; fiplr
-;; auto-complete
-;; flycheck
-;; handlebars-mode
-;; web-mode
-;; ag
-;; slim-mode
-;; evil-leader evil-numbers
-;; evil-surround
-;; php-mode-improved php-completion
-;; shell-switcher
-;; ruby-mode inf-ruby ruby-end rinari rspec-mode
-;; ibuffer-vc
-;; js2-mode js-comint
-;; coffee-mode
 ;; ac-coffee
-;; yaml-mode haml-mode markdown-mode ;; slim-mode
 ;; color-theme-almost-monokai
-;; scss-mode css-mode
 
 (defvar my-packages
   '(evil magit flycheck
          evil-leader evil-numbers
          evil-surround
          ruby-mode inf-ruby ruby-end rinari rspec-mode
-         haml-mode
+         yaml-mode haml-mode markdown-mode handlebars-mode
+         helm
+         ibuffer-vc
+         js2-mode
+         auto-complete
+         ac-js2
+         highlight-indentation
+         coffee-mode
+         fiplr
+         css-mode scss-mode
+         smartparens
+         ;; color-theme-almost-monokai
          ag))
 
 (defvar my-github-packages
-  '("machuga/powerline")
+  '("machuga/powerline" "akfish/ac-coffee")
   "A list of packages to ensure are installed at launch.")
 
 (defun refresh-packages ()
@@ -102,6 +93,11 @@
             (clone-package-from-github package package-path)
             (message "Package %s installed" package)))))
 
+(defun install-github-packages ()
+  (dolist (p my-github-packages)
+    (install-package-from-github p)))
+
+
 (defun clone-package-from-github (package path)
   "Clone package from GitHub"
   (let ((url (concat "https://github.com/" package)))
@@ -126,6 +122,9 @@
 ;; Init my packages
 (init-packages my-packages)
 
+;; Install required packages
+(install-github-packages)
+
 ;; Init my GitHub packages
 ;;(github-package-initialize)
 (dolist (p my-github-packages)
@@ -137,5 +136,6 @@
       (load-file file))))
 
 ;;(init-packages my-github-packages)
-
+;;(define-key global-map (kbd "RET") 'newline-and-indent)
+(electric-indent-mode 1)
 (provide 'package-load)

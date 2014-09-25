@@ -116,6 +116,11 @@ set showcmd
 " Keep more context when scrolling off the end of a buffer
 set scrolloff=3
 
+" Scroll optimizations
+" set nocursorcolumn
+" set nocursorline
+" syntax sync minlines=256
+
 " Yank to platform clipboard
 map <leader>y "*y
 

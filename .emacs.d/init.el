@@ -36,6 +36,9 @@
  tramp-default-method "ssh"
 
  comint-buffer-maximum-size 10240
+
+ ;; Always add newline
+ require-final-newline t
 )
 
 ;; tabs
@@ -48,6 +51,6 @@
 (let ((path (shell-command-to-string ". ~/.zshenv; echo -n $PATH")))
   (setenv "PATH" path)
   (setq exec-path
-	(append
-	 (split-string-and-unquote path ":")
-	 exec-path)))
+  (append
+   (split-string-and-unquote path ":")
+   exec-path)))
