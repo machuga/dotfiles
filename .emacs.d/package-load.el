@@ -23,6 +23,8 @@
          ibuffer-vc
          js2-mode
          auto-complete
+         neotree
+         edit-server
          ac-js2
          highlight-indentation
          coffee-mode
