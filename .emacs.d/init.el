@@ -39,6 +39,9 @@
 
  ;; Always add newline
  require-final-newline t
+
+ ;; Don't make backups
+ make-backup-files nil
 )
 
 ;; tabs
@@ -54,3 +57,11 @@
   (append
    (split-string-and-unquote path ":")
    exec-path)))
+
+(require 'smooth-scrolling)
+(setq smooth-scroll-margin 5)
+(setq scroll-conservatively 9999
+      scroll-preserve-screen-position t)
+
+;;(custom-set-variables
+;; '(initial-frame-alist '(fullscreen . maximized)))

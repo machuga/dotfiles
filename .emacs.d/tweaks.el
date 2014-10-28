@@ -1,10 +1,21 @@
 ;;; some generic-ish functions
 
+;; (defun create-tags (dir-name)
+;;   "Create tags file."
+;;   (interactive "DDirectory: ")
+;;   (shell-command
+;;    (format "ctags -f tags -e -R %s --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *" (directory-file-name dir-name))))
+
 (defun create-tags (dir-name)
   "Create tags file."
   (interactive "DDirectory: ")
+  (message (format "%s -f %s/tags -eR %s"
+                   path-to-ctags (directory-file-name dir-name)
+                   (directory-file-name dir-name)))
   (shell-command
-   (format "ctags -f tags -e -R %s --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *" (directory-file-name dir-name))))
+   (format "%s -f %s/tags -eR %s" path-to-ctags
+           (directory-file-name dir-name) (directory-file-name dir-name))))
+
 
 (defun open-init-file ()
   "Open default init file"
