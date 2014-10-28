@@ -8,3 +8,4 @@
 .emacs.d/inits/*.elc
 .emacs.d/auto-save-list
 .emacs.d/eshell
+.DS_Store

@@ -20,6 +20,8 @@
          ruby-mode inf-ruby ruby-end rinari rspec-mode
          yaml-mode haml-mode markdown-mode handlebars-mode
          helm
+         smooth-scrolling
+         color-theme-monokai
          ibuffer-vc
          js2-mode
          auto-complete
