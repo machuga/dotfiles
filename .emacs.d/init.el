@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'cl)
 (require 'display)
@@ -16,7 +16,7 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (setq
- default-directory "~"
+ default-directory "~/"
 
  ;; backups
  backup-directory-alist `((".*" . ,temporary-file-directory))
@@ -41,8 +41,7 @@
  require-final-newline t
 
  ;; Don't make backups
- make-backup-files nil
-)
+ make-backup-files nil)
 
 ;; tabs
 (setq-default
