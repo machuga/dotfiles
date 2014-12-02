@@ -1,8 +1,8 @@
 (custom-set-faces
- '(default ((t (:family "Monaco" :foundry nil :slant normal :weight normal :height 150 :width normal)))))
+ '(default ((t (:family "Inconsolata\-g" :foundry nil :slant normal :weight normal :height 150 :width normal)))))
 
 ;;(set-frame-font "Inconsolata-g-15" nil)
-(set-face-attribute 'default nil :font "Monaco-14")
+(set-face-attribute 'default nil :font "Inconsolata\-g-15")
 
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -52,8 +52,8 @@
 ;; Line number formatting
 (defun my-linum-get-format-string ()
   (let* ((width (length (number-to-string
-			 (count-lines (point-min) (point-max)))))
-	 (format (concat "%" (number-to-string width) "d")))
+       (count-lines (point-min) (point-max)))))
+   (format (concat "%" (number-to-string width) "d")))
     (setq my-linum-format-string format)))
 
 (defun my-linum-format (line-number)
@@ -68,8 +68,8 @@
   "Add hilighting of certain keywords to given modes."
   (dolist (mode modes)
     (font-lock-add-keywords mode
-			    '(("\\<\\(FIXME\\|WARNING\\|NOTE\\|TODO\\|TBC\\|TBD\\)[: ]" 1
-			       font-lock-warning-face t))
-			    )))
+          '(("\\<\\(FIXME\\|WARNING\\|NOTE\\|TODO\\|TBC\\|TBD\\)[: ]" 1
+             font-lock-warning-face t))
+          )))
 
 (provide 'display)

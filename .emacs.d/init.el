@@ -16,7 +16,7 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (setq
- default-directory "~"
+ default-directory "~/"
 
  ;; backups
  backup-directory-alist `((".*" . ,temporary-file-directory))

@@ -30,6 +30,7 @@
          coffee-mode
          fiplr
          css-mode scss-mode
+         web-mode
          smartparens
          ;; color-theme-almost-monokai
          ag))
