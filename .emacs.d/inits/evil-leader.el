@@ -10,6 +10,7 @@
   "K" 'evil-window-move-very-top
   "H" 'evil-window-move-far-left
   "L" 'evil-window-move-far-right
+  "n" 'neotree-toggle
   "b" 'ibuffer
   "e" 'eval-buffer
   "f" 'fiplr-find-file

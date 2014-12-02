@@ -2,7 +2,7 @@
  '(default ((t (:family "Inconsolata\-g" :foundry nil :slant normal :weight normal :height 150 :width normal)))))
 
 ;;(set-frame-font "Inconsolata-g-15" nil)
-(set-face-attribute 'default nil :font "Inconsolata\-g-15")
+(set-face-attribute 'default nil :font "Inconsolata\-g")
 
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
