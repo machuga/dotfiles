@@ -17,4 +17,4 @@ alias eretag="ctags -R -e --exclude=.svn --exclude=.git --exclude=node_modules -
 
 alias be="bundle exec"
 alias src="source ~/.zshrc"
-alias spec="bundle exec rspec"
+alias bspec="bundle exec rspec"

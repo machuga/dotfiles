@@ -16,12 +16,13 @@
 (defvar my-packages
   '(evil magit flycheck
          evil-leader evil-numbers evil-nerd-commenter
-         evil-surround
-         ruby-mode inf-ruby ruby-end rinari rspec-mode
+         evil-surround evil-paredit
+         ruby-mode inf-ruby ruby-end rinari rspec-mode feature-mode
          yaml-mode haml-mode markdown-mode handlebars-mode
          helm
          smooth-scrolling
          color-theme-monokai
+         clojure-mode cider
          ;;zenburn
          ibuffer-vc
          js2-mode
