@@ -22,6 +22,7 @@
     ds     = diff --stat=160,120
     dh1    = diff HEAD~1
     r      = rebase
+    cp     = cherry-pick
 
     # Divergence (commits we added and commits remote added)
     div = divergence
@@ -70,3 +71,5 @@
 	smudge = git-media-smudge %f
 [core]
 	excludesfile = /Users/machuga/.gitignore_global
+[init]
+	templatedir = ~/.git_template
