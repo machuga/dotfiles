@@ -261,7 +261,9 @@ nnoremap <Leader>J <C-W>J
 nnoremap <Leader>K <C-W>K
 nnoremap <Leader>L <C-W>L
 nnoremap <Leader>] :noh <CR>
-nnoremap <Leader>p :set paste<CR>
+"nnoremap <Leader>p :set paste<CR>
+nnoremap <Leader>p <C-^>
+
 nnoremap <Leader>o :set nopaste<CR>
 nnoremap <Leader>bn :bn<CR>
 nnoremap <Leader>bp :bp<CR>
