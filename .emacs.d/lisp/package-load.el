@@ -21,7 +21,8 @@
          yaml-mode haml-mode markdown-mode handlebars-mode
          helm
          smooth-scrolling
-         color-theme-monokai
+         ;;color-theme-monokai
+         sanityinc-tomorrow-night
          clojure-mode cider
          ;;zenburn
          ibuffer-vc

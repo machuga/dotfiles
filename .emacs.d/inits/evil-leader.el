@@ -14,6 +14,10 @@
   "b" 'ibuffer
   "e" 'eval-buffer
   "f" 'fiplr-find-file
+  "F" '(lambda ()
+         (interactive)
+         (fiplr-clear-cache)
+         (fiplr-find-file))
   "s" '(lambda ()
          (interactive)
          (split-window-horizontally)

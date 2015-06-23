@@ -1,8 +1,14 @@
+(defvar my-font (if (member "Source Code Pro" (font-family-list))
+                    "Source Code Pro-15"
+                    (if (member "Inconsolata\-g" (font-family-list))
+                      "Inconsolata\-g-15"
+                      "Monaco-15")))
 (custom-set-faces
- '(default ((t (:family "Inconsolata\-g" :foundry nil :slant normal :weight normal :height 150 :width normal)))))
+ '(default ((t (:family my-font :foundry nil :slant normal :weight normal :height 150 :width normal)))))
 
-;;(set-frame-font "Inconsolata-g-15" nil)
-(set-face-attribute 'default nil :font "Inconsolata\-g")
+;;;(set-frame-font "Inconsolata\-g" nil)
+(set-face-attribute 'default nil :font my-font)
+(load-theme 'sanityinc-tomorrow-night t)
 
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -16,7 +22,6 @@
   (setq default-frame-alist '((cursor-type . (bar . 3))))
 
   (setq
-   default-indicate-empty-lines t
    indicate-empty-lines t
    ns-pop-up-frames nil
    ns-use-srgb-colorspace t))

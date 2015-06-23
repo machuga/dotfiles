@@ -113,4 +113,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
       (symbol-name (item))
     item))
 
+(global-set-key (kbd "s-=") 'text-scale-increase)
+(global-set-key (kbd "s--") 'text-scale-decrease)
+
 (provide 'tweaks)

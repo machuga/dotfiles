@@ -1,10 +1,10 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'cl)
-(require 'display)
 (require 'tweaks)
 (require 'package-load)
 (require 'terminal)
+(require 'display)
 
 ;; UTF-8 Encoding
 (prefer-coding-system       'utf-8)
