@@ -1,12 +1,19 @@
 (defvar my-font (if (member "Source Code Pro" (font-family-list))
                     "Source Code Pro-15"
-                    (if (member "Inconsolata\-g" (font-family-list))
+                  (if (member "Inconsolata\-g" (font-family-list))
                       "Inconsolata\-g-15"
-                      "Monaco-15")))
-(custom-set-faces
- '(default ((t (:family my-font :foundry nil :slant normal :weight normal :height 150 :width normal)))))
+                    "Monaco-15")))
 
-;;;(set-frame-font "Inconsolata\-g" nil)
+(custom-set-faces
+ '(default ((t (:family my-font
+                :foundry nil
+                :slant normal
+                :weight normal
+                :height 150
+                :width normal)))))
+
+;;;(set-frame-font my-font nil)
+
 (set-face-attribute 'default nil :font my-font)
 (load-theme 'sanityinc-tomorrow-night t)
 
@@ -57,8 +64,8 @@
 ;; Line number formatting
 (defun my-linum-get-format-string ()
   (let* ((width (length (number-to-string
-       (count-lines (point-min) (point-max)))))
-   (format (concat "%" (number-to-string width) "d")))
+                         (count-lines (point-min) (point-max)))))
+         (format (concat "%" (number-to-string width) "d")))
     (setq my-linum-format-string format)))
 
 (defun my-linum-format (line-number)
@@ -73,8 +80,7 @@
   "Add hilighting of certain keywords to given modes."
   (dolist (mode modes)
     (font-lock-add-keywords mode
-          '(("\\<\\(FIXME\\|WARNING\\|NOTE\\|TODO\\|TBC\\|TBD\\)[: ]" 1
-             font-lock-warning-face t))
-          )))
+                            '(("\\<\\(FIXME\\|WARNING\\|NOTE\\|TODO\\|TBC\\|TBD\\)[: ]" 1
+                               font-lock-warning-face t)))))
 
 (provide 'display)

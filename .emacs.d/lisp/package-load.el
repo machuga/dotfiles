@@ -20,9 +20,10 @@
          ruby-mode inf-ruby ruby-end rinari rspec-mode feature-mode
          yaml-mode haml-mode markdown-mode handlebars-mode
          helm
+         projectile
          smooth-scrolling
          ;;color-theme-monokai
-         sanityinc-tomorrow-night
+         color-theme-sanityinc-tomorrow
          clojure-mode cider
          ;;zenburn
          ibuffer-vc

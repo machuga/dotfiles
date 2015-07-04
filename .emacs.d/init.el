@@ -1,3 +1,10 @@
+;;; dotfiles --- Bootstrap my Emacs config
+
+;;; Commentary:
+;;  Bootstrapper for my Emacs
+
+;;; Code:
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'cl)
@@ -62,5 +69,4 @@
 (setq scroll-conservatively 9999
       scroll-preserve-screen-position t)
 
-;;(custom-set-variables
-;; '(initial-frame-alist '(fullscreen . maximized)))
+(custom-set-variables '(initial-frame-alist '(fullscreen . maximized)))

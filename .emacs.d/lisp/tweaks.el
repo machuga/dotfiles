@@ -1,3 +1,10 @@
+;;; dotfiles-tweaks --- Some extraneous functions for dev
+
+;;; Commentary:
+;;  Functions in here are largely to add or augment behavior
+
+;;; Code:
+
 ;;; some generic-ish functions
 
 ;; (defun create-tags (dir-name)
@@ -23,16 +30,16 @@
   (find-file "~/.emacs.d/init.el") nil)
 
 (defun ido-find-file-in-tag-files ()
-      (interactive)
-      (save-excursion
-        (let ((enable-recursive-minibuffers t)) (visit-tags-table-buffer))
-        (find-file (expand-file-name
-                    (ido-completing-read "Project file: "
-                                         (tags-table-files) nil t)))))
+  (interactive)
+  (save-excursion
+    (let ((enable-recursive-minibuffers t)) (visit-tags-table-buffer))
+    (find-file (expand-file-name
+                (ido-completing-read "Project file: "
+                                     (tags-table-files) nil t)))))
 
-;; indent whole bufer
+;; indent whole buffer
 (defun iwb()
-  "indent whole buffer"
+  "Indent whole buffer"
   (interactive)
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil)
@@ -40,7 +47,7 @@
 
 ;; clear eshell buffer
 (defun eshell/clear ()
-  "clear the eshell buffer"
+  "Clear the eshell buffer"
   (interactive)
   (let ((inhibit-read-only t))
     (erase-buffer)))
@@ -48,11 +55,11 @@
 (defun jump-to-end ()
   "Sets the cursor to the end-of-buffer and the beginning-of-line"
   (interactive)
-  (end-of-buffer)
+  (goto-char (point-max))
   (end-of-line))
 
 
-;; misc functions for quiting killing the minibuffer with esc
+;; misc functions for killing the minibuffer with esc
 (defun def-assoc (key alist default)
   "Return cdr of `KEY' in `ALIST' or `DEFAULT' if key is no car in alist."
   (let ((match (assoc key alist)))
@@ -79,19 +86,19 @@
 
 (defun pour-mappings-to (map mappings)
   "Calls `define-key' with `map' on every key-fun pair in `MAPPINGS'.
-`MAPPINGS' is a list of string-fun pairs, with a define-key-understandable string and a interactive-fun."
+   `MAPPINGS' is a list of string-fun pairs, with a
+   define-key-understandable string and a interactive-fun."
   (dolist (mapping (group mappings 2))
     (define-key map (car mapping) (cadr mapping)))
   map)
 
 (defun fill-keymap (keymap &rest mappings)
   "Fill `KEYMAP' with `MAPPINGS'.
-See `pour-mappings-to'."
+   See `pour-mappings-to'."
   (pour-mappings-to keymap mappings))
 
 (defun fill-keymaps (keymaps &rest mappings)
-  "Fill `KEYMAPS' with `MAPPINGS'.
-See `pour-mappings-to'."
+  "Fill `KEYMAPS' with `MAPPINGS'. See `pour-mappings-to'."
   (dolist (keymap keymaps keymaps)
     (let ((map (if (symbolp keymap)
                    (symbol-value keymap)
@@ -100,8 +107,8 @@ See `pour-mappings-to'."
 
 (defun minibuffer-keyboard-quit ()
   "Abort recursive edit.
-In Delete Selection mode, if the mark is active, just deactivate it;
-then it takes a second \\[keyboard-quit] to abort the minibuffer."
+   In Delete Selection mode, if the mark is active, just deactivate it;
+   then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (interactive)
   (if (and delete-selection-mode transient-mark-mode mark-active)
       (setq deactivate-mark  t)
