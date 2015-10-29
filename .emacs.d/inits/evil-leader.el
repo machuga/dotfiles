@@ -26,4 +26,15 @@
   "i" 'open-init-file
   "g" 'magit-status
   "p" 'evil-buffer
-  "w" 'whitespace-cleanup)
+  "w" '(lambda ()
+         (interactive)
+         (if (= (length (window-list)) 1)
+           (winner-undo)
+           (delete-other-windows)))
+  "ci" 'evilnc-comment-or-uncomment-lines
+  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+  "cc" 'evilnc-copy-and-comment-lines
+  "cp" 'evilnc-comment-or-uncomment-paragraphs
+  "cr" 'comment-or-uncomment-region
+  "cv" 'evilnc-toggle-invert-comment-line-by-line
+  ",," 'evilnc-comment-operator)

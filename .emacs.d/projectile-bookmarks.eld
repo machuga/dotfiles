@@ -1,0 +1,1 @@
+("~/ttm/live_teaching/" "~/dotfiles/" "~/ttm/new-lt/" "~/ttm/apangea/" "~/ttm/live_teaching/new-lt/" "~/ttm/live-teaching-12/" "~/ttm/meta/")

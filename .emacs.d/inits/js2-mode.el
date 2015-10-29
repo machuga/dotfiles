@@ -5,3 +5,10 @@
 (eval-after-load "js2-mode"
   '(progn
      (setq js2-minor-mode nil)))
+
+(defun activate-js2-paredit-curly ()
+  (define-key js2-mode-map "{" 'paredit-open-curly)
+  (define-key js2-mode-map "}" 'paredit-close-curly))
+
+(add-hook 'js2-mode-hook 'evil-paredit-mode)
+(add-hook 'js2-mode-hook 'activate-js2-paredit-curly)

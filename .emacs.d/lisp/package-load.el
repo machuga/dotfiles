@@ -17,21 +17,23 @@
   '(evil magit flycheck
          evil-leader evil-numbers evil-nerd-commenter
          evil-surround evil-paredit
-         ruby-mode inf-ruby ruby-end rinari rspec-mode feature-mode
+         enh-ruby-mode ruby-mode inf-ruby ruby-end rinari rspec-mode feature-mode
          yaml-mode haml-mode markdown-mode handlebars-mode
          helm
          projectile
          smooth-scrolling
+         yasnippet
+         ;;powerline
          ;;color-theme-monokai
          color-theme-sanityinc-tomorrow
          clojure-mode cider
          ;;zenburn
          ibuffer-vc
-         js2-mode
+         js2-mode js2-refactor ac-js2 js2-highlight-vars
+         json-mode json-reformat
          auto-complete
          neotree
          edit-server
-         ac-js2
          highlight-indentation
          coffee-mode
          fiplr
