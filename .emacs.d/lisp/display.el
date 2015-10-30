@@ -1,8 +1,10 @@
-(defvar my-font (if (member "Source Code Pro" (font-family-list))
+(defvar my-font (if (member "Hack" (font-family-list))
+                    "Hack-15"
+                  (if (member "Source Code Pro" (font-family-list))
                     "Source Code Pro-15"
                   (if (member "Inconsolata\-g" (font-family-list))
                       "Inconsolata\-g-15"
-                    "Monaco-15")))
+                    "Monaco-15"))))
 
 (custom-set-faces
  '(default ((t (:family my-font

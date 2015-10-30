@@ -27,6 +27,7 @@
          ;;color-theme-monokai
          color-theme-sanityinc-tomorrow
          clojure-mode cider
+         elm-mode
          ;;zenburn
          ibuffer-vc
          js2-mode js2-refactor ac-js2 js2-highlight-vars
