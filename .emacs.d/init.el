@@ -69,7 +69,7 @@
 (setq scroll-conservatively 9999
       scroll-preserve-screen-position t)
 
-(custom-set-variables '(initial-frame-alist '(fullscreen . maximized)))
+;;(custom-set-variables '(initial-frame-alist '(fullscreen . maximized)))
 ;;(custom-set-variables
 ;; '(initial-frame-alist '(fullscreen . maximized)))
 (custom-set-variables

@@ -46,6 +46,7 @@ function! LoadVundle()
     Plugin 'SuperTab'
     Plugin 'Tabular'
     Plugin 'fatih/vim-go'
+    Plugin 'elmcast/elm-vim'
     "Plugin 'airblade/vim-gitgutter'
     "Plugin 'jeetsukumaran/vim-buffergator'
 

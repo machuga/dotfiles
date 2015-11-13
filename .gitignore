@@ -8,4 +8,6 @@
 .emacs.d/inits/*.elc
 .emacs.d/auto-save-list
 .emacs.d/eshell
+.emacs.d/projectile-bookmarks.eld
+
 .DS_Store

@@ -27,15 +27,15 @@
          ;;color-theme-monokai
          color-theme-sanityinc-tomorrow
          clojure-mode cider
-         elm-mode
+         ;;elm-mode
          ;;zenburn
          ibuffer-vc
-         js2-mode js2-refactor ac-js2 js2-highlight-vars
+         js2-mode js2-refactor ac-js2 js2-highlight-vars jsx-mode
          json-mode json-reformat
          auto-complete
          neotree
          edit-server
-         highlight-indentation
+         highlight-indentation rainbow-delimiters
          coffee-mode
          fiplr
          css-mode scss-mode
