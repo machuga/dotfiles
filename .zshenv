@@ -13,10 +13,6 @@ else
     PATH=$HOME/.rbenv/shims:$PATH
 fi
 
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
-
 if [ -s $HOME/.nvm/nvm.sh ] || [ -s /usr/local/opt/nvm/nvm.sh ]; then
     export NVM_DIR=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
