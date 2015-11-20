@@ -20,3 +20,10 @@
 
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
+(add-hook 'evil-after-load-hook
+          (lambda ()
+            ;; config
+            (setq key-chord-two-keys-delay 0.5)
+            (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+            (key-chord-mode 1)))

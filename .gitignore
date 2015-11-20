@@ -9,5 +9,7 @@
 .emacs.d/auto-save-list
 .emacs.d/eshell
 .emacs.d/projectile-bookmarks.eld
+.emacs.d/ido.last
+.emacs.d/lisp/#*
 
 .DS_Store

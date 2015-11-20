@@ -19,7 +19,7 @@
          evil-surround evil-paredit
          enh-ruby-mode ruby-mode inf-ruby ruby-end rinari rspec-mode feature-mode
          yaml-mode haml-mode markdown-mode handlebars-mode
-         helm
+         helm helm-projectile helm-ag
          projectile
          smooth-scrolling
          yasnippet
@@ -30,9 +30,10 @@
          ;;elm-mode
          ;;zenburn
          ibuffer-vc
-         js2-mode js2-refactor ac-js2 js2-highlight-vars jsx-mode
+         js2-mode js2-refactor ac-js2 tern tern-auto-complete jsx-mode
+         key-chord
          json-mode json-reformat
-         auto-complete
+         auto-complete ac-html
          neotree
          edit-server
          highlight-indentation rainbow-delimiters
@@ -40,7 +41,7 @@
          fiplr
          css-mode scss-mode
          web-mode
-         smartparens
+         smartparens rainbow-delimiters
          ;; color-theme-almost-monokai
          ag))
 

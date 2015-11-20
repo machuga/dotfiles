@@ -18,7 +18,8 @@
          (interactive)
          (fiplr-clear-cache)
          (fiplr-find-file))
-  "s" '(lambda ()
+  "s" 'helm-projectile-ag
+  "S" '(lambda ()
          (interactive)
          (split-window-horizontally)
          (switch-to-buffer "*scratch*")
