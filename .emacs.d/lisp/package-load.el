@@ -27,10 +27,10 @@
          ;;color-theme-monokai
          color-theme-sanityinc-tomorrow
          clojure-mode cider
-         ;;elm-mode
+         elm-mode
          ;;zenburn
          ibuffer-vc
-         js2-mode js2-refactor ac-js2 tern tern-auto-complete jsx-mode
+         js2-mode js2-refactor ac-js2 tern tern-auto-complete
          key-chord
          json-mode json-reformat
          auto-complete ac-html
