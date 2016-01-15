@@ -13,7 +13,8 @@
   "n" 'neotree-toggle
   "b" 'ibuffer
   "e" 'eval-buffer
-  "f" 'fiplr-find-file
+  ;;"f" 'fiplr-find-file
+  "f" 'helm-projectile-find-file
   "F" '(lambda ()
          (interactive)
          (fiplr-clear-cache)
