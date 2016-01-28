@@ -5,7 +5,7 @@
 # Add or remove keywords here
 KEYWORDS_REGEX="binding.pry|console\.(debug|info|log|warn)|debugger\n"
 # Add extensions to check here
-EXTENSIONS_REGEX="(.rb$|.coffee$)"
+EXTENSIONS_REGEX="(.rb$|.coffee$|.js$|.haml$)"
 
 ERRORS_BUFFER=""
 TEXT_DEFAULT="\\033[0;39m"
