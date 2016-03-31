@@ -35,6 +35,8 @@ values."
      ;; spell-checking
      syntax-checking
      version-control
+     github
+     react
      themes-megapack
      javascript
      html
