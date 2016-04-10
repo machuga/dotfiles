@@ -5,7 +5,7 @@ PATH=""
 PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:.:/bin
 PATH=/usr/local/share/npm/bin:$HOME/.composer/vendor/bin:$PATH:$GOBIN
 
-[[ $os = "Darwin" ]] && PATH="/Applications/Postgres.app/Contents/MacOS/bin":$PATH
+[[ $os = "Darwin" ]] && PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
 if [ -s $HOME/.rvm/scripts/rvm ]; then
     PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -13,9 +13,12 @@ else
     PATH=$HOME/.rbenv/shims:$PATH
 fi
 
-if [ -s $HOME/.nvm/nvm.sh ] || [ -s /usr/local/opt/nvm/nvm.sh ]; then
+function load_nvm() {
+  if [ -s $HOME/.nvm/nvm.sh ] || [ -s /usr/local/opt/nvm/nvm.sh ]; then
     export NVM_DIR=~/.nvm
-    source $(brew --prefix nvm)/nvm.sh
-fi
+    source /usr/local/opt/nvm/nvm.sh
+  fi
+}
 
-export PATH=$HOME/bin:$PATH
+
+export PATH=$HOME/bin:$HOME/.cargo/bin:$PATH
