@@ -46,7 +46,10 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      helm-emmet
+                                      ac-emmet
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -255,6 +258,7 @@ layers configuration. You are free to put any user code."
   (setq-default
    js2-basic-offset 2
    js2-indent-level 2
+   css-indent-offset 2
    indent-tabs-mode nil
 
    evil-escape-key-sequence "kj"
@@ -264,6 +268,7 @@ layers configuration. You are free to put any user code."
    web-mode-markup-indent-offset 2
    web-mode-css-indent-offset 2
    web-mode-code-indent-offset 2
+   css-indent-offset 2
 
    projectile-enable-caching t
    )
