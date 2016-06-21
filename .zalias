@@ -12,7 +12,7 @@ alias co="git co"
 # Other aliases
 alias ls="ls -G"
 alias retag="ctags -R --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *"
-alias eretag="ctags -R -e --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *"
+alias eretag="ctags -R -e --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp --exclude=app/assets *"
 # alias retag="ctags -R -f ./.git/tags --exclude=.svn --exclude=.git --exclude=tmp *"
 
 alias be="bundle exec"

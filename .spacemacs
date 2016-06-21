@@ -271,6 +271,7 @@ layers configuration. You are free to put any user code."
    css-indent-offset 2
 
    projectile-enable-caching t
+   projectile-tags-command "ctags -eR --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp --exclude=app/assets *"
    )
 
   (defun define-custom-evil-quit ()
