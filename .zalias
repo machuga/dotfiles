@@ -18,3 +18,6 @@ alias eretag="ctags -R -e --exclude=.svn --exclude=.git --exclude=node_modules -
 alias be="bundle exec"
 alias resrc="source ~/.zshrc"
 alias bspec="bundle exec rspec"
+
+# Fucking Apple
+alias fucking_webcam="sudo killall VDCAssistant"

@@ -56,6 +56,8 @@ values."
                                       helm-emmet
                                       ac-emmet
                                       feature-mode
+                                      ruby-hash-syntax
+                                      yaml-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -277,6 +279,7 @@ layers configuration. You are free to put any user code."
    web-mode-css-indent-offset 2
    web-mode-code-indent-offset 2
    css-indent-offset 2
+   json-reformat:indent-width 2
 
    projectile-enable-caching t
    projectile-tags-command "ctags -eR --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp --exclude=app/assets *"
