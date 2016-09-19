@@ -15,10 +15,10 @@ ZSH_THEME="machuga-short"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
+#DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -45,11 +45,12 @@ os=`uname -s`
 #[[ -s $HOME/.zprofile ]] && source $HOME/.zprofile
 
 # Environment variables
+export EDITOR="vim"
 if command -v nvim >/dev/null 2>&1 ; then
     export VIM="/usr/local/share/vim"
     alias vim="nvim"
+    export EDITOR="nvim"
 fi
-export EDITOR="vim"
 #export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
 export ACK_COLOR_MATCH="red"
@@ -76,17 +77,11 @@ if [ -s $HOME/.private_env ]; then
     source $HOME/.private_env
 fi
 
-function gg() {
-    git grep --break --heading --line-number "$@" ;
-}
-
-function gg-open() {
-    vim $(git grep -l "$@") ;
-}
-
 function mkalias() {
     echo "alias $1=\"${@:2}\"" >> ~/.zalias
     source ~/.zalias
 }
 # Vi mode
 #bindkey -v
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

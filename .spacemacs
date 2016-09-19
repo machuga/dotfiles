@@ -24,7 +24,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     ;; better-defaults
+     better-defaults
      emacs-lisp
      git
      markdown
@@ -38,9 +38,15 @@ values."
      github
      react
      themes-megapack
+     rust
      javascript
      html
-     (ruby :variables ruby-enable-enh-ruby-mode t)
+     php
+     elm
+     (ruby :variables
+           ruby-enable-enh-ruby-mode t
+           ruby-test-runner 'rspec)
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -49,6 +55,7 @@ values."
    dotspacemacs-additional-packages '(
                                       helm-emmet
                                       ac-emmet
+                                      feature-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -262,6 +269,7 @@ layers configuration. You are free to put any user code."
    indent-tabs-mode nil
 
    evil-escape-key-sequence "kj"
+   rust-enable-racer t
    )
 
   (setq
@@ -272,7 +280,11 @@ layers configuration. You are free to put any user code."
 
    projectile-enable-caching t
    projectile-tags-command "ctags -eR --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp --exclude=app/assets *"
+   path-to-ctags "/usr/local/bin/ctags"
    )
+
+  (require 'feature-mode)
+  (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
   (defun define-custom-evil-quit ()
     (evil-define-command evil-quit (&optional force)
@@ -294,6 +306,15 @@ is closed."
            (message "No more windows to remove. Use 'bd' to destroy this buffer")))))
     (evil-ex-define-cmd "q[uit]" 'evil-quit))
   (define-custom-evil-quit)
+  (defun create-tags (dir-name)
+    "Create tags file."
+    (interactive "DDirectory: ")
+    (message (format "%s -f %s/tags -eR %s"
+                     path-to-ctags (directory-file-name dir-name)
+                     (directory-file-name dir-name)))
+    (shell-command
+     (format "%s -f %s/tags -eR %s" path-to-ctags
+             (directory-file-name dir-name) (directory-file-name dir-name))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

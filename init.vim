@@ -7,6 +7,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
 Plug 'chriskempson/base16-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Group dependencies, vim-snippets depends on ultisnips
 "Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -14,7 +16,8 @@ Plug 'chriskempson/base16-vim'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-Plug 'benekastah/neomake'
+Plug 'neomake/neomake'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -184,8 +187,11 @@ au FileType ujs set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
 au FileType php set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79 expandtab
 au FileType blade set textwidth=0
 
-" Key mappings
+" run neomake on everything when possible
+"
+autocmd! BufWritePost * Neomake
 
+" Key mappings
 nnoremap <Leader>wh <C-W>h
 nnoremap <Leader>wj <C-W>j
 nnoremap <Leader>wk <C-W>k
@@ -206,5 +212,7 @@ nnoremap <Leader>w  :w<CR>
 nnoremap <Leader>x  :wq<CR>
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
+nnoremap <Leader>pt :NERDTreeToggle<CR>
+nnoremap <Leader>pf :FZF<CR>
 
 

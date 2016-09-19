@@ -6,6 +6,7 @@ PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:.:/bin
 PATH=/usr/local/share/npm/bin:$HOME/.composer/vendor/bin:$PATH:$GOBIN
 
 [[ $os = "Darwin" ]] && PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+[[ $os = "Darwin" ]] && PATH=$PATH:/Applications/Racket\ v6.6/bin
 
 if [ -s $HOME/.rvm/scripts/rvm ]; then
     PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
