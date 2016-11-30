@@ -9,6 +9,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'roman/golden-ratio'
 
 " Group dependencies, vim-snippets depends on ultisnips
 "Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -214,5 +215,6 @@ vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 nnoremap <Leader>pt :NERDTreeToggle<CR>
 nnoremap <Leader>pf :FZF<CR>
-
-
+nnoremap <Leader>/ :Ag<CR>
+nnoremap <Leader>fed :vsp ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>feR :source ~/.config/nvim/init.vim<CR>
