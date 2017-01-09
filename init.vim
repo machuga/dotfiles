@@ -10,6 +10,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'roman/golden-ratio'
+Plug 'trevordmiller/nova-vim'
+Plug 'pangloss/vim-javascript'
 
 " Group dependencies, vim-snippets depends on ultisnips
 "Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -95,7 +97,8 @@ set directory=~/.config/nvim/backups
 " Set theming info
 set t_Co=256
 set background=dark
-colorscheme base16-tomorrow
+" colorscheme base16-tomorrow
+colorscheme nova
 
 " Code folding
 set foldenable
