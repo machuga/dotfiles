@@ -23,3 +23,7 @@ function load_nvm() {
 
 
 export PATH=$HOME/bin:$HOME/.cargo/bin:$PATH
+
+if [ -s `brew --prefix`/etc/profile.d/z.sh ]; then
+  . `brew --prefix`/etc/profile.d/z.sh
+fi
