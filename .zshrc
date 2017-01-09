@@ -47,7 +47,7 @@ os=`uname -s`
 # Environment variables
 export EDITOR="vim"
 if command -v nvim >/dev/null 2>&1 ; then
-    export VIM="/usr/local/share/vim"
+    #export ="/usr/local/share/vim"
     alias vim="nvim"
     alias vi="nvim"
     export EDITOR="nvim"
