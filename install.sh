@@ -14,31 +14,35 @@ link_file()
 
 link_files()
 {
-    echo "Linking any unlinked files"
-    if [ -f ~/.zshrc ]; then
-        unlink ~/.zshrc
-        link_file .zshrc
-    fi
+  echo "Linking any unlinked files"
+  if [ -f ~/.zshrc ]; then
+      unlink ~/.zshrc
+  fi
+  link_file .zshrc
 	link_file .zshenv
 	link_file .zalias
 	link_file .zprofile
+	link_file .zshrc
 
 	link_file .emacs.d
 	link_file .vimrc
 	link_file .gvimrc
+  link_file .spacemacs
 
 	link_file .gitconfig
 	link_file .gitignore
 
 	link_file .tmux.conf
 	link_file battery
+	link_file .osx
 }
 
 install_homebrew()
 {
 	if ! command -v brew >/dev/null 2>&1; then
 		echo "Installing Homebrew..."
-		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		brew tap caskroom/cask
 	else
 		echo "Skipping Homebrew..."
 	fi
@@ -64,17 +68,33 @@ install_zsh_theme()
 
 install_packages()
 {
+	brew cask install google-chrome
+	brew cask install firefox
+	brew cask install iterm2
+  brew cask install alfred
+	brew cask install atom
+  brew cask install screenhero
+	brew cask install screenflow
+	brew cask install dropbox
+	brew cask install slack
+	brew cask install racket
+	brew cask install spectacle
+	brew cask install spotify
+	brew cask install virtualbox
+
+	brew install git
 	brew install tmux
 	brew install zsh
-	brew install emacs --cocoa --srgb
+	brew install fzf
+	brew install nvm
 
+	brew install emacs --with-cocoa
 	brew install vim
-	brew tap neovim/neovim
-	brew install --HEAD neovim
+	brew install neovim/neovim/neovim
 
 	brew install rbenv ruby-build
-	rbenv install 2.1.5
-	rbenv system 2.1.5
+	rbenv install 2.3.3
+	rbenv default 2.3.3
 	gem install bundler
 	rbenv rehash
 }
@@ -85,4 +105,5 @@ install_zsh
 install_zsh_theme
 link_files
 
-
+# One time source macOS config settings
+source ~/.osx
