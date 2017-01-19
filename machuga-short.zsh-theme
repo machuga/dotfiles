@@ -14,17 +14,17 @@
 # 
 # function ssh_connection() {
 #   if [[ -n $SSH_CONNECTION ]]; then
-#     echo "%{$limegreen%}(ssh) %{$reset_color%}"
+#     echo "%{$limegreen%}(ssh) ${PR_RST}"
 #   fi
 # }
 # 
-# PROMPT=$'%{$fg[cyan]%}%c%{$reset_color%}$(git_prompt_info) %{$fg[blue]%}λ%{$reset_color%} '
-# RPROMPT=$'[ %{$purple%}$(ruby -v | cut -d" " -f 2)%{$reset_color%} ]'
+# PROMPT=$'%{$fg[cyan]%}%c${PR_RST}$(git_prompt_info) %{$fg[blue]%}λ${PR_RST} '
+# RPROMPT=$'[ %{$purple%}$(ruby -v | cut -d" " -f 2)${PR_RST} ]'
 # 
-# ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[cyan]%}(%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[cyan]%})%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ✗%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%} ✔%{$reset_color%}"
+# ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[cyan]%}(${PR_RST}"
+# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[cyan]%})${PR_RST}"
+# ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ✗${PR_RST}"
+# ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%} ✔${PR_RST}"
 
 PR_GIT_UPDATE=1
 
@@ -35,19 +35,19 @@ colors
 autoload -U add-zsh-hook
 autoload -Uz vcs_info
 
-#use extended color pallete if available
-if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
-turquoise="%F{81}"
-orange="%F{166}"
-purple="%F{135}"
-hotpink="%F{161}"
-limegreen="%F{118}"
+#use extended color palette if available
+if [[ $terminfo[colors] -ge 256 || $TERM = *rxvt* ]]; then
+    turquoise="%F{81}"
+    orange="%F{166}"
+    purple="%F{135}"
+    hotpink="%F{161}"
+    limegreen="%F{118}"
 else
-turquoise="$fg[cyan]"
-orange="$fg[yellow]"
-purple="$fg[magenta]"
-hotpink="$fg[red]"
-limegreen="$fg[green]"
+    turquoise="%F{cyan}"
+    orange="%F{yellow}"
+    purple="%F{magenta}"
+    hotpink="%F{red}"
+    limegreen="%F{green}"
 fi
 
 # enable VCS systems you use
@@ -64,7 +64,7 @@ zstyle ':vcs_info:*:prompt:*' check-for-changes true
 # %a - action (e.g. rebase-i)
 # %R - repository path
 # %S - path in the repository
-PR_RST="%{${reset_color}%}"
+PR_RST="%f"
 FMT_BRANCH="(%{$turquoise%}%b%u%c${PR_RST})"
 FMT_ACTION="(%{$limegreen%}%a${PR_RST})"
 FMT_UNSTAGED="%{$orange%}●"
@@ -114,12 +114,12 @@ function steeef_precmd {
 add-zsh-hook precmd steeef_precmd
 
 #PROMPT=$'
-#%{$turquoise%}%n%{$reset_color%} at %{$orange%}%m%{$reset_color%} in %{$fg[blue]%}%~%{$reset_color%}
+#%{$turquoise%}%n${PR_RST} at %{$orange%}%m${PR_RST} in %{$fg[blue]%}%~${PR_RST}
 #λ '
 
 PROMPT=$'
-%{$purple%}%n%{$reset_color%}:%{$limegreen%}%c%{$reset_color%} $vcs_info_msg_0_%{$reset_color%}
-λ '
-# PROMPT=$'%{$fg[cyan]%}%c%{$reset_color%}$(git_prompt_info) %{$fg[blue]%}λ%{$reset_color%} '
+%{$purple%}%n${PR_RST}:%{$limegreen%}%c${PR_RST} $vcs_info_msg_0_${PR_RST}
+λ ${PR_RST}'
+# PROMPT=$'%{$fg[cyan]%}%c${PR_RST}$(git_prompt_info) %{$fg[blue]%}λ${PR_RST} '
 
-RPROMPT=$'%{$reset_color%}[ %{$purple%}$(ruby -v | cut -d" " -f 2)%{$reset_color%} ]'
+RPROMPT=$'${PR_RST}[ %{$purple%} $(ruby -v | cut -d" " -f 2) ${PR_RST}| %{$orange%} $(command -v node >/dev/null 2>&1 && node --version || echo "N/A") ${PR_RST} ] '
