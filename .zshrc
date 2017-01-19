@@ -32,7 +32,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby rails)
+plugins=(git ruby)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,7 +47,7 @@ os=`uname -s`
 # Environment variables
 export EDITOR="vim"
 if command -v nvim >/dev/null 2>&1 ; then
-    #export ="/usr/local/share/vim"
+    #export VIM="/usr/local/share/vim"
     alias vim="nvim"
     alias vi="nvim"
     export EDITOR="nvim"
@@ -56,6 +56,7 @@ fi
 export GREP_OPTIONS="--color"
 export ACK_COLOR_MATCH="red"
 export WORDCHARS='*?[]~&;!$%^<>'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
 
 # Less Colors for Man Pages
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
