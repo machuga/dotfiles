@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     typescript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -289,6 +290,9 @@ layers configuration. You are free to put any user code."
    web-mode-code-indent-offset 2
    css-indent-offset 2
    json-reformat:indent-width 2
+   js2-basic-offset 2
+   js2-indent-level 2
+
    js2-basic-offset 2
    js2-indent-level 2
 
