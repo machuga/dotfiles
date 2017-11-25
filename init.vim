@@ -3,15 +3,36 @@ call plug#begin('~/.config/nvim/plugged')
 " Make sure you use single quotes
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+" Smarter vim behaviors
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
-Plug 'vim-ruby/vim-ruby'
-Plug 'chriskempson/base16-vim'
+Plug 'ervandew/supertab'
+Plug 'Townk/vim-autoclose'
+
+" Fuzzy Matching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Appearance
 Plug 'roman/golden-ratio'
 Plug 'trevordmiller/nova-vim'
+Plug 'chriskempson/base16-vim'
+
+" Language Modes
 Plug 'pangloss/vim-javascript'
+Plug 'vim-ruby/vim-ruby'
+Plug 'ElmCast/elm-vim'
+
+" Git
+Plug 'kablamo/vim-git-log'
+Plug 'gregsexton/gitv'
+Plug 'tpope/vim-fugitive'
+
+" Markdown
+Plug 'reedes/vim-pencil'
+Plug 'tpope/vim-markdown'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'LanguageTool'
 
 " Group dependencies, vim-snippets depends on ultisnips
 "Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -97,8 +118,8 @@ set directory=~/.config/nvim/backups
 " Set theming info
 set t_Co=256
 set background=dark
-" colorscheme base16-tomorrow
-colorscheme nova
+colorscheme base16-tomorrow
+"colorscheme nova
 
 " Code folding
 set foldenable
@@ -119,6 +140,23 @@ endfunction
 
 map <Leader>tf :call ToggleFolding()<CR>
 
+"""""""""""""""""
+" Elm config
+"""""""""""""""""
+let g:elm_format_autosave = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:elm_syntastic_show_warnings = 1
+let g:elm_jump_to_error = 0
+let g:elm_make_output_file = "elm.js"
+let g:elm_make_show_warnings = 0
+let g:elm_browser_command = ""
+let g:elm_detailed_complete = 0
+let g:elm_format_fail_silently = 0
+let g:elm_setup_keybindings = 1
+
+nmap <leader>ce :ElmErrorDetail<cr>
+nmap <leader>cm :ElmMake<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open files relative to current
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -190,6 +228,23 @@ au FileType ujs set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
 " make PHP conform to PSR-1 standards
 au FileType php set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79 expandtab
 au FileType blade set textwidth=0
+
+" Markdown Syntax Support
+augroup markdown
+  au!
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
+" Settings for Writting
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+let g:languagetool_jar  = '/opt/languagetool/languagetool-commandline.jar'
+
+" Vim-pencil Configuration
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
 
 " run neomake on everything when possible
 "
