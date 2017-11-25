@@ -42,6 +42,7 @@ values."
      rust
      javascript
      html
+     php
      elm
      (ruby :variables
            ruby-enable-enh-ruby-mode t
@@ -123,8 +124,9 @@ values."
                          minimal
                          spacemacs-dark
                          spacemacs-light
-                         solarized-light
                          solarized-dark
+                         solarized-light
+                         github-modern-theme
                          leuven
                          monokai
                          zenburn)
@@ -132,8 +134,14 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
+   ;;dotspacemacs-default-font '("Operator Mono"
+   ;;                            :size 18
+   ;;                            :weight normal
+   ;;                            :width normal
+   ;;                            :powerline-scale 1.1)
+
    dotspacemacs-default-font '("Operator Mono"
-                               :size 16
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -300,6 +308,11 @@ layers configuration. You are free to put any user code."
    projectile-tags-command "ctags -eR --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp --exclude=app/assets --exclude=build/bundle.js *"
    path-to-ctags "/usr/local/bin/ctags"
    )
+  (add-hook 'js2-mode-hook (lambda ()
+                             (setq
+                              js2-basic-offset 2
+                              js2-indent-level 2
+                              )))
 
   (require 'feature-mode)
   (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
@@ -362,3 +375,4 @@ is closed."
  ;; If there is more than one, they won't work right.
  ;;'(default ((((class color) (min-colors 89)) (:foreground "#ffffff" :background "#263238"))))
  ;;)
+ )
