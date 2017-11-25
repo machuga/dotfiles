@@ -1,6 +1,6 @@
 [user]
 	name = Matthew Machuga
-	email = mmachuga@thinkthroughmath.com
+	email = machuga@gmail.com
 [color]
     ui = auto
 [alias]
@@ -74,13 +74,13 @@
 	smudge = git-media-smudge %f
 [core]
 	excludesfile = /Users/machuga/.gitignore_global
-    pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 [init]
 	templatedir = ~/.git_template
 [color "diff-highlight"]
-    oldNormal = red bold
+    oldNormal = red
     oldHighlight = red bold 52
-    newNormal = green bold
+    newNormal = green
     newHighlight = green bold 22
 [color "diff"]
     commit = green
