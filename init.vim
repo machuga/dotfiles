@@ -8,9 +8,11 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'Townk/vim-autoclose'
+Plug 'w0rp/ale'
 
 " Fuzzy Matching
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Appearance
@@ -32,7 +34,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
-Plug 'LanguageTool'
 
 " Group dependencies, vim-snippets depends on ultisnips
 "Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -40,7 +41,8 @@ Plug 'LanguageTool'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
+Plug 'Shougo/denite.nvim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -237,7 +239,6 @@ augroup END
 
 " Settings for Writting
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-let g:languagetool_jar  = '/opt/languagetool/languagetool-commandline.jar'
 
 " Vim-pencil Configuration
 augroup pencil
@@ -248,7 +249,7 @@ augroup END
 
 " run neomake on everything when possible
 "
-autocmd! BufWritePost * Neomake
+"autocmd! BufWritePost * Neomake
 
 " Key mappings
 nnoremap <Leader>wh <C-W>h
