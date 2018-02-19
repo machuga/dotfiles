@@ -20,23 +20,27 @@ Plug 'roman/golden-ratio'
 Plug 'trevordmiller/nova-vim'
 Plug 'chriskempson/base16-vim'
 
-" Language Modes
 Plug 'pangloss/vim-javascript'
-Plug 'vim-ruby/vim-ruby'
-Plug 'ElmCast/elm-vim'
+"Plug 'ElmCast/elm-vim'
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
+Plug 'sheerun/vim-polyglot'
 
-" Git
-Plug 'kablamo/vim-git-log'
-Plug 'gregsexton/gitv'
-Plug 'tpope/vim-fugitive'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
-" Markdown
-Plug 'reedes/vim-pencil'
-Plug 'tpope/vim-markdown'
-Plug 'jtratner/vim-flavored-markdown'
-
+Plug 'ervandew/supertab'
 " Group dependencies, vim-snippets depends on ultisnips
-"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -46,6 +50,30 @@ Plug 'Shougo/denite.nvim'
 
 " Add plugins to &runtimepath
 call plug#end()
+
+" Use deoplete.
+" call deoplete#enable()
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+
+set completeopt=longest,menuone,preview
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" close the preview window when you're not using it
+"let g:SuperTabClosePreviewOnPopupClose = 1
+" or just disable the preview entirely
+"set completeopt-=preview
 
 if has('nvim')
 	tnoremap <Esc> <C-\><C-n>
@@ -121,7 +149,7 @@ set directory=~/.config/nvim/backups
 set t_Co=256
 set background=dark
 colorscheme base16-tomorrow
-"colorscheme nova
+" colorscheme nova
 
 " Code folding
 set foldenable
@@ -231,25 +259,16 @@ au FileType ujs set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
 au FileType php set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79 expandtab
 au FileType blade set textwidth=0
 
-" Markdown Syntax Support
-augroup markdown
-  au!
-  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
-
-" Settings for Writting
-let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-
-" Vim-pencil Configuration
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
-augroup END
+" fix stylus
+au FileType ruby set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79 noexpandtab
 
 " run neomake on everything when possible
 "
 "autocmd! BufWritePost * Neomake
+augroup on_buf_write
+  autocmd!
+  autocmd BufWritePre * %s/\s\+$//e
+augroup END
 
 " Key mappings
 nnoremap <Leader>wh <C-W>h
