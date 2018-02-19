@@ -32,7 +32,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby)
+plugins=(git ruby fasd)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,3 +87,8 @@ function mkalias() {
 #bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if command -v fasd >/dev/null 2>&1 ; then
+  eval "$(fasd --init auto)"
+fi
+

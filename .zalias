@@ -21,3 +21,5 @@ alias bspec="bundle exec rspec"
 
 # Fucking Apple
 alias fucking_webcam="sudo killall VDCAssistant"
+
+alias a0_size="osascript -e 'tell application \"Google Chrome Canary\" to set the bounds of the front window to {100, 150, 1200, 900}'"
