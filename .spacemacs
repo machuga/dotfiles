@@ -64,6 +64,7 @@ values."
                                       minimal-theme
                                       edit-server
                                       stylus-mode
+                                      dumb-jump
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
