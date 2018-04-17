@@ -5,7 +5,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Smarter vim behaviors
 Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich' " vim-surround, but better
 Plug 'ervandew/supertab'
 Plug 'Townk/vim-autoclose'
 Plug 'w0rp/ale'
@@ -20,36 +21,37 @@ Plug 'roman/golden-ratio'
 Plug 'trevordmiller/nova-vim'
 Plug 'chriskempson/base16-vim'
 
-Plug 'pangloss/vim-javascript'
+"Plug 'pangloss/vim-javascript'
 "Plug 'ElmCast/elm-vim'
-Plug 'hashivim/vim-terraform'
-Plug 'juliosueiras/vim-terraform-completion'
+"Plug 'hashivim/vim-terraform'
+"Plug 'juliosueiras/vim-terraform-completion'
 Plug 'sheerun/vim-polyglot'
 
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  "Plug 'Shougo/deoplete.nvim'
+  "Plug 'roxma/nvim-yarp'
+  "Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-Plug 'ervandew/supertab'
 " Group dependencies, vim-snippets depends on ultisnips
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Plug 'neomake/neomake'
-Plug 'Shougo/denite.nvim'
+"Plug 'Shougo/denite.nvim'
 
 " Add plugins to &runtimepath
 call plug#end()
+
+runtime! macros/sandwich/keymap/surround.vim
 
 " Use deoplete.
 " call deoplete#enable()
@@ -292,7 +294,29 @@ nnoremap <Leader>x  :wq<CR>
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 nnoremap <Leader>pt :NERDTreeToggle<CR>
-nnoremap <Leader>pf :FZF<CR>
+nnoremap <Leader>pf :Files<CR>
 nnoremap <Leader>/ :Ag<CR>
 nnoremap <Leader>fed :vsp ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>feR :source ~/.config/nvim/init.vim<CR>
+
+
+" FZF config
+"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
