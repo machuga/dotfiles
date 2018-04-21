@@ -1,52 +1,39 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-" Smarter vim behaviors
 Plug 'junegunn/vim-easy-align'
-"Plug 'tpope/vim-surround'
 Plug 'machakann/vim-sandwich' " vim-surround, but better
 Plug 'ervandew/supertab'
 Plug 'Townk/vim-autoclose'
 Plug 'w0rp/ale'
 
 " Fuzzy Matching
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug '/usr/local/opt/fzf'
+Plug '/usr/local/opt/fzf' " Using Homebrew
 Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Appearance
 Plug 'roman/golden-ratio'
 Plug 'trevordmiller/nova-vim'
 Plug 'chriskempson/base16-vim'
 
-"Plug 'pangloss/vim-javascript'
-"Plug 'ElmCast/elm-vim'
-"Plug 'hashivim/vim-terraform'
-"Plug 'juliosueiras/vim-terraform-completion'
+" Language support
 Plug 'sheerun/vim-polyglot'
 
-if has('nvim')
-  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  "Plug 'Shougo/deoplete.nvim'
-  "Plug 'roxma/nvim-yarp'
-  "Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 " Group dependencies, vim-snippets depends on ultisnips
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-"Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
-" On-demand loading
-"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Git Integration (Magit clone)
+Plug 'jreybert/vimagit'
 
 " Plug 'neomake/neomake'
-"Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim'
+
+" Let's try ALE again
+Plug 'w0rp/ale'
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -176,9 +163,6 @@ map <Leader>tf :call ToggleFolding()<CR>
 " Elm config
 """""""""""""""""
 let g:elm_format_autosave = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:elm_syntastic_show_warnings = 1
 let g:elm_jump_to_error = 0
 let g:elm_make_output_file = "elm.js"
 let g:elm_make_show_warnings = 0
@@ -195,6 +179,8 @@ nmap <leader>cm :ElmMake<cr>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
+map <leader>sp :sp %%
+map <leader>vsp :vsp %%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rename Current File
@@ -226,6 +212,33 @@ function! RemoveFancyCharacters()
     :exe ":%s/".join(keys(typo), '\|').'/\=typo[submatch(0)]/ge'
 endfunction
 command! RemoveFancyCharacters :call RemoveFancyCharacters()
+
+
+""""""""
+" Linter (Ale)
+""""""""
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+""""""""""
+" Airline
+""""""""""
+" Set this. Airline will handle the rest.
+" let g:airline#extensions#ale#enabled = 1
+let g:airline_extensions = ['ale', 'denite', 'vimagit']
+let g:airline_powerline_fonts = 1
+let g:airline_theme='monochrome'
 
 """"""""""""""""""""
 " Setup file types
@@ -298,6 +311,14 @@ nnoremap <Leader>pf :Files<CR>
 nnoremap <Leader>/ :Ag<CR>
 nnoremap <Leader>fed :vsp ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>feR :source ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>gs :Magit<CR>
+
+" Easy Align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
 " FZF config
