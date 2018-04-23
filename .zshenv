@@ -24,6 +24,10 @@ function load_nvm() {
 
 export PATH=$HOME/bin:$HOME/.cargo/bin:$PATH
 
+if [ -s $HOME/.auth0-alias ]; then
+  . $HOME/.auth0-alias
+fi
+
 if [ -s `brew --prefix`/etc/profile.d/z.sh ]; then
   . `brew --prefix`/etc/profile.d/z.sh
 fi
