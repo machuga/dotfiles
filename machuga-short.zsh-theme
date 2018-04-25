@@ -11,16 +11,16 @@
 #     hotpink="$fg[red]"
 #     limegreen="$fg[green]"
 # fi
-# 
+#
 # function ssh_connection() {
 #   if [[ -n $SSH_CONNECTION ]]; then
 #     echo "%{$limegreen%}(ssh) ${PR_RST}"
 #   fi
 # }
-# 
+#
 # PROMPT=$'%{$fg[cyan]%}%c${PR_RST}$(git_prompt_info) %{$fg[blue]%}λ${PR_RST} '
 # RPROMPT=$'[ %{$purple%}$(ruby -v | cut -d" " -f 2)${PR_RST} ]'
-# 
+#
 # ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[cyan]%}(${PR_RST}"
 # ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[cyan]%})${PR_RST}"
 # ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ✗${PR_RST}"
@@ -78,7 +78,7 @@ zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
 
 function steeef_preexec {
-    case "$(history $HISTCMD)" in
+    case "$2" in
         *git*)
             PR_GIT_UPDATE=1
             ;;
