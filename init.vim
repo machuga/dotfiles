@@ -35,6 +35,9 @@ Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Rainbow Parens
+Plug 'junegunn/rainbow_parentheses.vim'
+
 " Add plugins to &runtimepath
 call plug#end()
 
