@@ -23,3 +23,8 @@ alias bspec="bundle exec rspec"
 alias fucking_webcam="sudo killall VDCAssistant"
 
 alias a0_size="osascript -e 'tell application \"Google Chrome Canary\" to set the bounds of the front window to {100, 150, 1200, 900}'"
+alias tmuxs="tmux new-session -s"
+
+alias start_pg="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+
+alias frg='rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
