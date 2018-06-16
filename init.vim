@@ -138,10 +138,15 @@ set backupdir=~/.config/nvim/backups
 set directory=~/.config/nvim/backups
 
 " Set theming info
-set t_Co=256
-set background=dark
-colorscheme base16-tomorrow
+"set t_Co=256
+"set background=dark
 " colorscheme nova
+"colorscheme base16-tomorrow
+set termguicolors
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Code folding
 set foldenable

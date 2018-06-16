@@ -99,6 +99,13 @@ install_packages()
 	rbenv rehash
 }
 
+install_256()
+{
+  git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+  source ~/.zshrc
+  base16_tomorrow-night
+}
+
 install_homebrew
 install_packages
 install_zsh
