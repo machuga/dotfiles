@@ -1,50 +1,29 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="machuga-short"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-#DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby fasd)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 os=`uname -s`
 
 # Customize to your needs...
+#
+# Vi mode
+#bindkey -v
+#
 [[ -s $HOME/.zshenv ]] && source $HOME/.zshenv
 
 # Load zprofile
 #[[ -s $HOME/.zprofile ]] && source $HOME/.zprofile
 
-# Environment variables
 export EDITOR="vim"
 if command -v nvim >/dev/null 2>&1 ; then
     #export VIM="/usr/local/share/vim"
@@ -52,7 +31,7 @@ if command -v nvim >/dev/null 2>&1 ; then
     alias vi="nvim"
     export EDITOR="nvim"
 fi
-#export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+
 export GREP_OPTIONS="--color"
 export ACK_COLOR_MATCH="red"
 export WORDCHARS='*?[]~&;!$%^<>'
@@ -67,28 +46,35 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-export CLOJURESCRIPT_HOME=~/.clojurescript
+[ -s $HOME/.zalias ] && source $HOME/.zalias
 
-if [[ $os = "Darwin" ]]; then
-    alias start_pg="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-fi
+[ -s $HOME/.private_env ] && source $HOME/.private_env
 
-source $HOME/.zalias
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ -s $HOME/.private_env ]; then
-    source $HOME/.private_env
-fi
+[ -s $HOME/.auth0-alias ] && source $HOME/.auth0-alias
+
+[ -s `brew --prefix`/etc/profile.d/z.sh ] && source `brew --prefix`/etc/profile.d/z.sh
 
 function mkalias() {
     echo "alias $1=\"${@:2}\"" >> ~/.zalias
     source ~/.zalias
 }
-# Vi mode
-#bindkey -v
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+function load_nvm() {
+  if [ -s $HOME/.nvm/nvm.sh ] || [ -s /usr/local/opt/nvm/nvm.sh ]; then
+    export NVM_DIR=~/.nvm
+    source /usr/local/opt/nvm/nvm.sh
+  fi
+}
 
 if command -v fasd >/dev/null 2>&1 ; then
   eval "$(fasd --init auto)"
 fi
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
