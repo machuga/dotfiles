@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="machuga-short"
+ZSH_THEME="machuga-avit"
 
 export UPDATE_ZSH_DAYS=13
 DISABLE_AUTO_TITLE="true"
