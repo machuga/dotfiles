@@ -316,7 +316,7 @@ vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 nnoremap <Leader>pt :NERDTreeToggle<CR>
 nnoremap <Leader>pf :Files<CR>
-nnoremap <Leader>/ :Ag<CR>
+nnoremap <Leader>/ :Rg<CR>
 nnoremap <Leader>fed :vsp ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>feR :source ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>gs :Magit<CR>
