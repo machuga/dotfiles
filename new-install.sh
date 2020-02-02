@@ -160,6 +160,8 @@ install_packages()
         spotify
         font-inconsolata-g-for-powerline
         docker
+        visual-studio-code
+        spectacle
     )
 
 
