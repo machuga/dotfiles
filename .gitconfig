@@ -1,5 +1,5 @@
 [user]
-	name = Matthew Machuga
+	name = Matt Machuga
 	email = machuga@gmail.com
 [color]
     ui = auto
@@ -90,3 +90,5 @@
     old = red
     new = green
     whitespace = red reverse
+[credential]
+	helper = osxkeychain
