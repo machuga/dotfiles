@@ -7,6 +7,9 @@ DISABLE_AUTO_TITLE="true"
 
 COMPLETION_WAITING_DOTS="true"
 
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fpath=($(brew --prefix)/share/zsh-completions $fpath)
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(git)
 

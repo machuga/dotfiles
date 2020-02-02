@@ -176,7 +176,11 @@ command! RemoveFancyCharacters :call RemoveFancyCharacters()
 "else
     set t_Co=256
     set background=dark
-    colorscheme base16-tomorrow
+    "colorscheme base16-tomorrow
+    if filereadable(expand("~/.vimrc_background"))
+        let base16colorspace=256
+        source ~/.vimrc_background
+    endif
 "endif
 " Directories for swp files
 set backupdir=~/.vim/backups
