@@ -7,9 +7,9 @@ Plug 'Townk/vim-autoclose'
 Plug 'w0rp/ale'
 
 " Fuzzy Matching
-Plug '/usr/local/opt/fzf' " Using Homebrew
+"Plug '/Users/machuga/homebrew/bin/fzf' " Using Homebrew
 Plug 'junegunn/fzf.vim'
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Appearance
 Plug 'roman/golden-ratio'
@@ -37,6 +37,9 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Rainbow Parens
 Plug 'junegunn/rainbow_parentheses.vim'
+
+" PEG Parser
+Plug 'alunny/pegjs-vim'
 
 " Add plugins to &runtimepath
 call plug#end()

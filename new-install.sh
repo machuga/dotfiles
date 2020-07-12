@@ -63,7 +63,7 @@ link_dotfiles()
     #link_file .emacs.d
     echo "Creating ~/.config/nvim directory"
     mkdir -p ~/.config/nvim
-    link_file .vimrc ~/.config/nvim/init.vim
+    link_file init.vim ~/.config/nvim/init.vim
 
     link_file .gitconfig
     link_file .gitignore
@@ -147,6 +147,7 @@ install_packages()
         zsh-autosuggestions
         zsh-completions
         fzf
+        bat
         tmux
         neovim
     )

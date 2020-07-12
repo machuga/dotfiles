@@ -306,7 +306,7 @@ let g:html_indent_style1 = "inc"
 
 " Ctrlp cleanup
 let g:ctrlp_custom_ignore = '\.git$\|\.o$\|\.app$\|\.beam$\|\.dSYM\|\.ipa$\|\.csv\|tags\|public\/images$\|public\/uploads$\|log\|tmp$\|source_maps\|app\/assets\/images\|test\/reports\|node_modules\|bower_components\|vendor'
-nnoremap <Leader>f :CtrlP<CR>
+nnoremap <Leader>fp :CtrlP<CR>
 
 " Unite
 " let g:unite_enable_start_insert = 1
