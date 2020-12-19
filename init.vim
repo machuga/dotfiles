@@ -396,7 +396,7 @@ endfunction
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
 function! ShowDocIfNoDiagnostic(timer_id)
-  if (coc#util#has_float() == 0)
+  if (coc#float#has_float() == 0)
     silent call CocActionAsync('doHover')
   endif
 endfunction
