@@ -14,27 +14,27 @@ link_file()
 
 link_files()
 {
-    echo "Linking any unlinked files"
-    if [ -f ~/.zshrc ]; then
-        unlink ~/.zshrc
-    fi
-    link_file .zshrc
-    link_file .zshenv
-    link_file .zalias
-    link_file .zprofile
-    link_file .zshrc
+	echo "Linking any unlinked files"
+	if [ -f ~/.zshrc ]; then
+		unlink ~/.zshrc
+	fi
+	link_file .zshrc
+	link_file .zshenv
+	link_file .zalias
+	link_file .zprofile
+	link_file .zshrc
 
-    link_file .emacs.d
-    link_file .vimrc
-    link_file .gvimrc
-    link_file .spacemacs
+	link_file .emacs.d
+	link_file .vimrc
+	link_file .gvimrc
+	link_file .spacemacs
 
-    link_file .gitconfig
-    link_file .gitignore
+	link_file .gitconfig
+	link_file .gitignore
 
-    link_file .tmux.conf
-    link_file battery
-    link_file .osx
+	link_file .tmux.conf
+	link_file battery
+	link_file .osx
 }
 
 install_homebrew()
@@ -106,10 +106,10 @@ install_256()
   base16_tomorrow-night
 }
 
-install_homebrew
-install_packages
-install_zsh
-install_zsh_theme
+#install_homebrew
+#install_packages
+#install_zsh
+#install_zsh_theme
 link_files
 
 # One time source macOS config settings
