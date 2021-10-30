@@ -1,11 +1,28 @@
 call plug#begin('~/.config/nvim/plugged')
 
+" Leverage neovim 0.5.0+ features
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate' }
+Plug 'neovim/nvim-lspconfig'
+
+let g:treesitter_langs = [ 'typescript', 'javascript', 'jsdoc', 'json', 'css', 'dockerfile', 'html', 'php', 'ruby', 'rust', 'scss', 'tsx', 'vim', 'yaml' ]
+
+function! InstallTreesitterLangs()
+  for lang in g:treesitter_langs
+    exec ':TSInstall ' . lang
+  endfor
+endfunction
+
+function! UpdateTreesitterLangs()
+  for lang in g:treesitter_langs
+    exec ':TSUpdate ' . lang
+  endfor
+endfunction
+
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich' " vim-surround, but better
 "Plug 'ervandew/supertab'
 Plug 'Townk/vim-autoclose'
 Plug 'w0rp/ale'
-Plug 'arcticicestudio/nord-vim'
 
 " Fuzzy Matching
 "Plug '/Users/machuga/homebrew/bin/fzf' " Using Homebrew
@@ -13,14 +30,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Install CoC
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-tsserver'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc-tsserver'
 
-Plug 'alunny/pegjs-vim'
+"Plug 'alunny/pegjs-vim'
 
 " Appearance
 Plug 'roman/golden-ratio'
 Plug 'trevordmiller/nova-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
 
 " Language support
@@ -46,7 +64,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/rainbow_parentheses.vim'
 
 " PEG Parser
-Plug 'alunny/pegjs-vim'
+"Plug 'alunny/pegjs-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -198,7 +216,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 map <leader>sp :sp %%
-map <leader>vsp :vsp %%
+map <leader>vs :vs %%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rename Current File
@@ -388,7 +406,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    "call CocAction('doHover')
   endif
 endfunction
 
@@ -397,7 +415,7 @@ endfunction
 
 function! ShowDocIfNoDiagnostic(timer_id)
   if (coc#float#has_float() == 0)
-    silent call CocActionAsync('doHover')
+    "silent call CocActionAsync('doHover')
   endif
 endfunction
 
@@ -463,7 +481,8 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}%{nvim_treesitter#statusline(90)}
+
 
 " Mappings using CoCList:
 " Show all diagnostics.
