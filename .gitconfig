@@ -78,6 +78,7 @@
     pager = ~/homebrew/share/git-core/contrib/diff-highlight/diff-highlight | less
 [init]
 	templatedir = ~/.git_template
+	defaultBranch = main
 [color "diff-highlight"]
     oldNormal = red
     oldHighlight = red bold 52
