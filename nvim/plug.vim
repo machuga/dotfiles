@@ -12,6 +12,13 @@ if has("nvim")
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'dcampos/nvim-snippy'
   Plug 'dcampos/cmp-snippy'
+  Plug 'chriskempson/base16-vim'
+  Plug 'junegunn/vim-easy-align'
+  Plug 'machakann/vim-sandwich'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 endif
 
 call plug#end()
