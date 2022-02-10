@@ -17,6 +17,10 @@ runtime ./mappings.vim
 
 "}}}
 
+lua << EOF
+require("focus").setup()
+EOF
+
 set number
 set ruler
 set hidden

@@ -19,6 +19,10 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'kyazdani42/nvim-web-devicons'
+  "Plug 'roman/golden-ratio'
+  Plug 'beauwilliams/focus.nvim'
+"You must run setup() to begin using focus
 endif
 
 call plug#end()
