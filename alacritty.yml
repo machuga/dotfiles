@@ -390,7 +390,17 @@ font:
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
 
-mouse:
+hints:
+  enabled:
+   - regex: "(mailto:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+             [^\u0000-\u001F\u007F-\u009F<>\" {-}\\^⟨⟩`]+"
+     command: open
+     post_processing: true
+     mouse:
+       enabled: true
+       mods: Control
+
+# mouse:
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -401,28 +411,6 @@ mouse:
 
   # If this is `true`, the cursor is temporarily hidden when typing.
   #hide_when_typing: false
-
-  url:
-    # URL launcher
-    #
-    # This program is executed when clicking on a text which is recognized as a URL.
-    # The URL is always added to the command as the last parameter.
-    #
-    # When set to `launcher: None`, URL launching will be disabled completely.
-    #
-    # Default:
-    #   - (macOS) open
-    #   - (Linux/BSD) xdg-open
-    #   - (Windows) explorer
-    launcher:
-      program: open
-    #  args: []
-
-    # URL modifiers
-    #
-    # These are the modifiers that need to be held down for opening URLs when clicking
-    # on them. The available modifiers are documented in the key binding section.
-    #modifiers: None
 
 # Mouse bindings
 #
