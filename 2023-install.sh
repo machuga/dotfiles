@@ -1,34 +1,36 @@
 #!/bin/sh
 
 DOTFILES_DIR=~/dotfiles
+
 install_homebrew()
 {
-    echo "Checking to see if homebrew needs installed..."
-    if ! command -v brew >/dev/null 2>&1; then
-        echo "Installing Homebrew..."
+  echo "Checking to see if homebrew needs installed..."
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing Homebrew..."
 
-        # Install Homebrew to home directory
-        mkdir $HOME/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/homebrew
-        export PATH=$HOME/homebrew/bin:$PATH
-        echo "Done."
-    else
-	export PATH=$HOME/homebrew/bin:$PATH
+    # Install Homebrew to home directory
+    mkdir $HOME/homebrew
+    curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/homebrew
+    export PATH=$HOME/homebrew/bin:$PATH
+    echo "Done."
+  else
+    export PATH=$HOME/homebrew/bin:$PATH
 
-        echo "Skipping. Homebrew already installed..."
-    fi
+    echo "Skipping. Homebrew already installed..."
+  fi
 }
 
 install_homebrew_packages()
 {
-  export PATH=$HOME/homebrew/bin:$PATH
-
   echo "Installing homebrew packages..."
+
   brew tap homebrew/cask-fonts
   brew install alacritty
   brew install bat
   brew install deno
   brew install fzf
   brew install git
+  brew install git-delta
   brew install gh
   brew install n
   brew install neovim
@@ -38,15 +40,20 @@ install_homebrew_packages()
   brew install zsh
   brew install zsh-autosuggestions
   brew install zsh-completions
+  brew install coreutils fd
   brew install --cask 1password
   brew install --cask alfred
   brew install --cask firefox
   brew install --cask font-inconsolata-g-for-powerline
   brew install --cask spotify
   brew install --cask slack
+  brew install --cask rectangle
+  brew install --cask zoom
+  brew install --cask krisp
 
-  #brew tap jimeh/emacs-builds
-  #brew install --cask emacs-app
+  brew tap railwaycat/emacsmacport
+  brew install emacs-mac --with-modules
+
   echo "Done"
 }
 
@@ -58,7 +65,7 @@ set_fast_key_repeat()
 install_omz()
 {
     echo "Installing Oh-My-ZSH..."
-    
+
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
       sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     else
@@ -69,7 +76,7 @@ install_omz()
 
 install_xcode_tools()
 {
-  if [ $(xcode-select -p 1>/dev/null;echo $?) -ne "0" ]; then 
+  if [ $(xcode-select -p 1>/dev/null;echo $?) -ne "0" ]; then
     xcode-select --install
   fi
 }
@@ -99,7 +106,7 @@ link_dotfiles()
 {
     echo "Linking dotfiles..."
 
-    unlink ~/.zshrc 
+    unlink ~/.zshrc
     link_file .zshrc
     link_file .zshenv
     link_file .zalias
@@ -167,6 +174,18 @@ install_vim_plug()
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 }
 
+install_doom_emacs()
+{
+    if ! [ -r ~/.config/emacs ]; then
+      echo "Installing Doom Emacs..."
+      git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+      ~/.config/emacs/bin/doom install
+      echo "Done!"
+    else
+        echo "Doom Emacs already installed"
+    fi
+}
+
 
 echo "*** Running installer... ***"
 install_xcode_tools
@@ -176,5 +195,6 @@ install_homebrew_packages
 install_shell_theme
 install_dotfiles
 install_vim_plug
+install_doom_emacs
 set_fast_key_repeat
 
