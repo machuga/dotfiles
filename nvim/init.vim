@@ -96,6 +96,7 @@ set foldenable
 set termguicolors
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
+  let base16_background_transparent=1 " Make vim background transparent to work alongside transparent terminal backgrounds
   source ~/.vimrc_background
 endif
 

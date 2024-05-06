@@ -12,7 +12,6 @@ if has("nvim")
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'dcampos/nvim-snippy'
   Plug 'dcampos/cmp-snippy'
-  Plug 'chriskempson/base16-vim'
   Plug 'junegunn/vim-easy-align'
   Plug 'machakann/vim-sandwich'
   Plug 'nvim-lua/plenary.nvim'
@@ -22,6 +21,7 @@ if has("nvim")
   Plug 'kyazdani42/nvim-web-devicons'
   "Plug 'roman/golden-ratio'
   Plug 'beauwilliams/focus.nvim'
+  Plug 'tinted-theming/base16-vim'
 "You must run setup() to begin using focus
 endif
 
