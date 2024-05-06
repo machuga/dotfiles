@@ -377,6 +377,8 @@ multiplier = 3
 
 [window]
 startup_mode = "Fullscreen"
+opacity = 0.9
+blur = true
 
 [window.dimensions]
 columns = 100
@@ -385,3 +387,4 @@ lines = 50
 [window.padding]
 x = 0
 y = 0
+
