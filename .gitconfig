@@ -1,6 +1,6 @@
 [user]
   name = Matt Machuga
-  email = machuga@gmail.com
+	email = matt.machuga@oysterhr.com
 
 [color]
   ui = auto
@@ -24,6 +24,7 @@
   b      = branch
   ds     = diff --stat=160,120
   dh1    = diff HEAD~1
+  dft    = difftool
   r      = rebase
   cp     = cherry-pick
   cpc    = cherry-pick --continue
@@ -80,7 +81,8 @@
 
 [core]
   excludesfile = /Users/machuga/.gitignore_global
-  pager = delta
+  # pager = delta
+  difftool = true
   # pager = ~/homebrew/share/git-core/contrib/diff-highlight/diff-highlight | less
 
 [init]
@@ -105,7 +107,7 @@
   helper = osxkeychain
 
 [interactive]
-  diffFilter = delta --color-only
+  #diffFilter = delta --color-only
 
 [delta]
   navigate = true    # use n and N to move between diff sections
@@ -115,3 +117,19 @@
 
 [diff]
   colorMoved = default
+  tool = difftastic
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

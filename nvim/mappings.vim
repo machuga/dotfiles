@@ -19,7 +19,7 @@ nnoremap <Leader>w  :w<CR>
 nnoremap <Leader>x  :wq<CR>
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
-nnoremap <Leader>pF :Files<CR>
+nnoremap <Leader>pF :GFiles<CR>
 nnoremap <Leader>\ :Rg<CR>
 nnoremap <Leader>fed :vs ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>feR :source ~/.config/nvim/init.vim<CR>
