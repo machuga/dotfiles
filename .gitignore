@@ -14,3 +14,4 @@
 .emacs.d/ido.last~
 .emacs.d/projectile.cache
 .DS_Store
+.zsh_local

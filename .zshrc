@@ -2,7 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="machuga-avit"
 
-export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=14
 DISABLE_AUTO_TITLE="true"
 
 COMPLETION_WAITING_DOTS="true"
@@ -15,17 +15,17 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Load Base16
+if [[ $(command -v tinty) ]]; then
+  tinty init
+else
+  echo "Tinty not installed. Cannot apply base16 theme"
+fi
+
 os=`uname -s`
 
-# Customize to your needs...
-#
 # Vi mode
 #bindkey -v
-#
-[[ -s $HOME/.zshenv ]] && source $HOME/.zshenv
-
-# Load zprofile
-#[[ -s $HOME/.zprofile ]] && source $HOME/.zprofile
 
 export EDITOR="vim"
 if command -v nvim >/dev/null 2>&1 ; then
@@ -49,26 +49,19 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
+[[ -s $HOME/.zshenv ]] && source $HOME/.zshenv
+
 [ -s $HOME/.zalias ] && source $HOME/.zalias
 
-[ -s $HOME/.private_env ] && source $HOME/.private_env
+[ -s $HOME/.zsh_local ] && source $HOME/.zsh_local
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-[ -s $HOME/.auth0-alias ] && source $HOME/.auth0-alias
 
 [ -s `brew --prefix`/etc/profile.d/z.sh ] && source `brew --prefix`/etc/profile.d/z.sh
 
 function mkalias() {
     echo "alias $1=\"${@:2}\"" >> ~/.zalias
     source ~/.zalias
-}
-
-function load_nvm() {
-  if [ -s $HOME/.nvm/nvm.sh ] || [ -s /usr/local/opt/nvm/nvm.sh ]; then
-    export NVM_DIR=~/.nvm
-    source /usr/local/opt/nvm/nvm.sh
-  fi
 }
 
 if command -v fasd >/dev/null 2>&1 ; then
@@ -103,24 +96,3 @@ function pr-checkout() {
     gh pr checkout "$pr_number"
   fi
 }
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-# End Nix
-
-[[ ! $(command -v nix) && -e "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh" ]] && source "/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
-path+=("/nix/var/nix/profiles/default/bin")
-
-eval "$(direnv hook zsh)"
-# Nix
-if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
-  source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-fi
-# End Nix

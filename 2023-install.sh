@@ -54,6 +54,9 @@ install_homebrew_packages()
   brew tap railwaycat/emacsmacport
   brew install emacs-mac --with-modules
 
+  brew tap tinted-theming/tinted
+  brew install tinty
+
   echo "Done"
 }
 
@@ -164,6 +167,8 @@ install_shell_theme()
 {
     echo "Installing ZSH Theme"
     link_file machuga-avit.zsh-theme ~/.oh-my-zsh/themes/machuga-avit.zsh-theme
+    tinty install
+    tinty apply base16-tomorrow-night
     source ~/.zshrc
     echo "Done"
 }
