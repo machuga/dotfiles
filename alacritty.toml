@@ -2,11 +2,14 @@
 TERM = "xterm-256color"
 
 [font]
-size = 14.0
+size = 16.0
 
 [font.normal]
-family = "InconsolataGo Nerd Font Mono"
-style = "Regular"
+#family = "Hack Nerd Font Mono"
+#family = "VictorMono Nerd Font Mono"
+#family = "InconsolataGo Nerd Font Mono"
+family = "ZedMono Nerd Font Mono"
+style = "Light"
 
 [[hints.enabled]]
 command = "open"
