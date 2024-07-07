@@ -1,0 +1,15 @@
+.git
+.gitignore
+\#.*\#
+
+^/README.*
+^/LICENSE.*
+^/COPYING.*
+
+Makefile
+
+scripts
+macos
+homebrew
+
+

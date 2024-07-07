@@ -1,1 +1,0 @@
-(evilnc-default-hotkeys)
