@@ -1,0 +1,63 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# A minimal left prompt
+format = """
+$username$hostname$directory$localip$line_break$character
+"""
+
+# move the rest of the prompt to the right
+right_format = """$shlvl\
+$kubernetes\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$package\
+$c\
+$cmake\
+$deno\
+$golang\
+$lua\
+$nodejs\
+$php\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$nix_shell\
+$aws\
+$nats\
+$direnv\
+$custom\
+$sudo\
+$cmd_duration\
+$jobs\
+$time\
+$status\
+$os\
+$container\
+$shell\
+"""
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[λ](white)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = false
+
+[directory]
+style = 'bold blue'
+truncate_to_repo = false
+truncation_symbol = '.../'
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+style = 'bold green'
