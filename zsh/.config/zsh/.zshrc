@@ -1,19 +1,16 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="machuga-avit"
-
-export UPDATE_ZSH_DAYS=14
 DISABLE_AUTO_TITLE="true"
+export BROWSER="firefox"
 
-COMPLETION_WAITING_DOTS="true"
+export HISTFILE=$HOME/.zsh_history
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fpath=($(brew --prefix)/share/zsh-completions $fpath)
+unsetopt menu_complete   # do not autoselect the first completion entry
+unsetopt flowcontrol
+setopt auto_menu         # show completion menu on successive tab press
+setopt auto_list
+unsetopt complete_in_word
+unsetopt always_to_end
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
+[ -f "$ZDOTDIR/completions.zsh" ] && source "$ZDOTDIR/completions.zsh"
 
 # Load Base16
 if [[ $(command -v tinty) ]]; then
@@ -31,6 +28,7 @@ os=`uname -s`
 
 # Vi mode
 #bindkey -v
+source <(fzf --zsh)
 
 export EDITOR="vim"
 if command -v nvim >/dev/null 2>&1 ; then
@@ -54,13 +52,13 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-[[ -s $HOME/.zshenv ]] && source $HOME/.zshenv
+#[[ -s $HOME/.zshenv ]] && source $HOME/.zshenv
 
-[ -s $HOME/.zalias ] && source $HOME/.zalias
+#[ -s $HOME/.zalias ] && source $HOME/.zalias
 
 [ -s $HOME/.zsh_local ] && source $HOME/.zsh_local
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -s `brew --prefix`/etc/profile.d/z.sh ] && source `brew --prefix`/etc/profile.d/z.sh
 
@@ -101,3 +99,5 @@ function pr-checkout() {
     gh pr checkout "$pr_number"
   fi
 }
+
+eval "$(starship init zsh)"
