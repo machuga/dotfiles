@@ -1,7 +1,6 @@
 {
   "base16-vim": { "branch": "main", "commit": "ba7885b261b4ced3fb032175d58cfecad43fd63f" },
   "focus.nvim": { "branch": "master", "commit": "948b32e35f54b6900632312d51a1706fabdc12b8" },
-  "fzf.vim": { "branch": "master", "commit": "279e1ec068f526e985ee7e3f62a71f083bbe0196" },
   "lazy.nvim": { "branch": "main", "commit": "a1fffe18f9355030fbb483156c762f50f5e0db73" },
   "lualine.nvim": { "branch": "master", "commit": "0a5a66803c7407767b799067986b4dc3036e1983" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "37a336b653f8594df75c827ed589f1c91d91ff6c" },

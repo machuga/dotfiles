@@ -32,3 +32,4 @@ vim.keymap.set("n", "<leader>vs", ":vs <C-R>=expand('%:p:h') . '/' <CR>",
   { desc = "Edit sibling file in vertical split" })
 
 vim.keymap.set("n", "<leader>o", ':set nopaste<cr>', { desc = "Remove search highlighting" })
+vim.keymap.set("i", "kj", '<esc>', { desc = "Quick exit" })

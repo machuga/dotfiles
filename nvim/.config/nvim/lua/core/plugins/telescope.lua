@@ -1,8 +1,33 @@
-local builtin = require('telescope.builtin')
+return {
+  'nvim-telescope/telescope-fzf-native.nvim',
+  dependencies = {
+    "folke/which-key.nvim",
+    "nvim-telescope/telescope.nvim"
+  },
+  build =
+  'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+  config = function()
+    local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<c-p>', builtin.find_files, {})
-vim.keymap.set('n', 'ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-vim.keymap.set('n', 'fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>/', builtin.live_grep, {})
-vim.keymap.set('n', 'fh', builtin.help_tags, {})
+    require("which-key").register({
+      f = {
+        name = "File",                                -- optional group name
+        f = { builtin.find_files, "Find File" },      -- create a binding with label
+        p = { builtin.git_files, "Find Git File" },   -- create a binding with label
+        r = { builtin.oldfiles, "Open Recent File" }, -- additional options for creating the keymap
+        g = { builtin.live_grep, "Live Grep" },
+        b = { builtin.buffers, "Buffers" },
+        h = { builtin.help_tags, "Help Tags" },
+      },
+      -- Muscle memory from Doom + Spacemacs with Projectile
+      p = {
+        name = "Project",                        -- optional group name
+        f = { builtin.find_files, "Find File" }, -- create a binding with label
+      },
+      ["/"] = { builtin.live_grep, "Live Grep" },
+    }, { prefix = "<leader>" })
+
+    -- Ctrl-p days
+    vim.keymap.set('n', '<c-p>', builtin.find_files, {})
+  end
+}

@@ -7,6 +7,8 @@ require("mason-lspconfig").setup({
     "jsonls",
     "tsserver",
     "solargraph",
+    "ruby_lsp",
+    "rubocop",
     "taplo",
     "yamlls",
     "vimls",
@@ -15,7 +17,30 @@ require("mason-lspconfig").setup({
   },
 })
 
-require('lspconfig').lua_ls.setup {}
+require('lspconfig').lua_ls.setup {
+  Lua = {
+    diagnostics = {
+      -- Get the language server to recognize the `vim` global
+      globals = { "vim" },
+    },
+    workspace = {
+      -- Make the server aware of Neovim runtime files
+      library = vim.api.nvim_get_runtime_file("", true),
+    },
+    -- Do not send telemetry data containing a randomized but unique identifier
+    telemetry = {
+      enable = false,
+    },
+  },
+}
+
+require('lspconfig').ruby_lsp.setup {
+  cmd = { "./bin/bundle", "exec", "ruby-lsp" }
+}
+
+--require('lspconfig').rubocop.setup {
+--  cmd = { "./bin/bundle", "exec", "rubocop", "--require", "rubocop-rails" }
+--}
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp", { clear = true }),
