@@ -29,7 +29,7 @@ zstyle ':completion:*:*:*:*:*' menu select
 bindkey -M menuselect '^o' accept-and-infer-next-history
 
 bindkey '^u' autosuggest-toggle
-bindkey '^L' vi-forward-word
+#bindkey '^L' vi-forward-word
 bindkey '^k' up-line-or-search
 
 # +---------+

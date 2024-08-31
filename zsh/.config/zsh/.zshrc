@@ -1,6 +1,10 @@
 DISABLE_AUTO_TITLE="true"
 export BROWSER="firefox"
 
+# macOS loads /etc/zshrc which prefixes things to the PATH I don't want there.
+# This just runs .zshenv again and cleans up the PATH.
+[ -f "$ZDOTDIR/.zshenv" ] && source "$ZDOTDIR/.zshenv"
+
 export HISTFILE=$HOME/.zsh_history
 
 unsetopt menu_complete   # do not autoselect the first completion entry
@@ -11,6 +15,7 @@ unsetopt complete_in_word
 unsetopt always_to_end
 
 [ -f "$ZDOTDIR/completions.zsh" ] && source "$ZDOTDIR/completions.zsh"
+[ -f "$ZDOTDIR/.zalias" ] && source "$ZDOTDIR/.zalias"
 
 # Load Base16
 if [[ $(command -v tinty) ]]; then
@@ -28,8 +33,6 @@ os=`uname -s`
 
 # Vi mode
 #bindkey -v
-source <(fzf --zsh)
-
 export EDITOR="vim"
 if command -v nvim >/dev/null 2>&1 ; then
     #export VIM="/usr/local/share/vim"
@@ -100,4 +103,29 @@ function pr-checkout() {
   fi
 }
 
-eval "$(starship init zsh)"
+# OS-specific things
+case "$(uname -s)" in
+
+Darwin)
+  #export DYLD_LIBRARY_PATH=$HOME/homebrew/lib/
+  #export DYLD_FALLBACK_LIBRARY_PATH=$HOME/homebrew/lib
+	;;
+
+Linux)
+	;;
+*)
+	# In case I ever try out BSDs seriously
+	;;
+esac
+
+source <(fzf --zsh)
+
+# Load extra things
+if command -v zoxide >/dev/null 2>&1 ; then
+  eval "$(starship init zsh)"
+fi
+
+if command -v zoxide >/dev/null 2>&1 ; then
+  eval "$(zoxide init zsh)"
+fi
+

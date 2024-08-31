@@ -7,9 +7,9 @@ size = 16.0
 [font.normal]
 #family = "Hack Nerd Font Mono"
 #family = "VictorMono Nerd Font Mono"
-#family = "InconsolataGo Nerd Font Mono"
-family = "ZedMono Nerd Font Mono"
-style = "Light"
+family = "InconsolataGo Nerd Font Mono"
+#family = "ZedMono Nerd Font Mono"
+#style = "Light"
 
 [[hints.enabled]]
 command = "open"
