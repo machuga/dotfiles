@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Copy to system paste buffer
-vim.keymap.set("n", "<leader>y", '"*y', { desc = "Copy to system paste buffer" })
+vim.keymap.set("v", "<leader>y", '"*y', { desc = "Copy to system paste buffer" })
 
 -- Window movements
 vim.keymap.set("n", "<leader>wh", "<C-w>h", { desc = "Focus window to the left" })
@@ -18,6 +18,11 @@ vim.keymap.set("n", "<leader>wL", "<C-w>L", { desc = "Move window to the right" 
 vim.keymap.set("n", "<leader>bn", ":bn<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bp", ":bp<cr>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bd", ":bd<cr>", { desc = "Delete buffer" })
+
+-- Buffer movements
+vim.keymap.set("n", "<leader>tn", ":tabnext<cr>", { desc = "Next tab" })
+vim.keymap.set("n", "<leader>tp", ":tabprevious<cr>", { desc = "Previous tab" })
+vim.keymap.set("n", "<leader>td", ":tabclose<cr>", { desc = "Delete tab" })
 
 -- Config management
 vim.keymap.set("n", "<leader>cf", ":vs ~/.config/nvim/init.lua<cr>", { desc = "Split edit config" })
