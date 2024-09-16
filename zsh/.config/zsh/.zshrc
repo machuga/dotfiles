@@ -121,7 +121,7 @@ esac
 source <(fzf --zsh)
 
 # Load extra things
-if command -v zoxide >/dev/null 2>&1 ; then
+if command -v starship >/dev/null 2>&1 ; then
   eval "$(starship init zsh)"
 fi
 
