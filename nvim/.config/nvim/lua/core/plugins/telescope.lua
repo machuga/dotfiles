@@ -9,23 +9,18 @@ return {
   config = function()
     local builtin = require('telescope.builtin')
 
-    require("which-key").register({
-      f = {
-        name = "File",                                -- optional group name
-        f = { builtin.find_files, "Find File" },      -- create a binding with label
-        p = { builtin.git_files, "Find Git File" },   -- create a binding with label
-        r = { builtin.oldfiles, "Open Recent File" }, -- additional options for creating the keymap
-        g = { builtin.live_grep, "Live Grep" },
-        b = { builtin.buffers, "Buffers" },
-        h = { builtin.help_tags, "Help Tags" },
-      },
-      -- Muscle memory from Doom + Spacemacs with Projectile
-      p = {
-        name = "Project",                        -- optional group name
-        f = { builtin.find_files, "Find File" }, -- create a binding with label
-      },
-      ["/"] = { builtin.live_grep, "Live Grep" },
-    }, { prefix = "<leader>" })
+    require("which-key").add({
+      { "<leader>/",  builtin.live_grep,  desc = "Live Grep" },
+      { "<leader>f",  group = "File" },
+      { "<leader>ff", builtin.find_files, desc = "Find File" },
+      { "<leader>fp", builtin.git_files,  desc = "Find Git File" },
+      { "<leader>fr", builtin.oldfiles,   desc = "Open Recent File" },
+      { "<leader>fg", builtin.live_grep,  desc = "Live Grep" },
+      { "<leader>fb", builtin.buffers,    desc = "Buffers" },
+      { "<leader>fh", builtin.help_tags,  desc = "Help Tags" },
+      { "<leader>p",  group = "Project" },
+      { "<leader>pf", builtin.find_files, desc = "Find File" },
+    })
 
     -- Ctrl-p days
     vim.keymap.set('n', '<c-p>', builtin.find_files, {})

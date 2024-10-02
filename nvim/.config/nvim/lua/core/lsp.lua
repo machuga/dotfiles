@@ -39,10 +39,10 @@ require("mason-lspconfig").setup({
     "html",
     "cssls",
     "jsonls",
-    "tsserver",
-    --"solargraph",
+    "ts_ls",
+    "solargraph",
     "ruby_lsp",
-    --"rubocop",
+    "rubocop",
     "taplo",
     "yamlls",
     "vimls",
@@ -135,9 +135,25 @@ require('lspconfig').ruby_lsp.setup {
   on_attach = on_attach
 }
 
+require('lspconfig').solargraph.setup {
+  cmd = { "./bin/bundle", "exec", "solargraph" },
+  capabilities = capabilities,
+  on_attach = on_attach
+}
 --require('lspconfig').rubocop.setup {
 --  cmd = { "./bin/bundle", "exec", "rubocop", "--require", "rubocop-rails" }
 --}
+
+require('lspconfig').rubocop.setup {
+  cmd = { "./bin/bundle", "exec", "rubocop", "--lsp" },
+  capabilities = capabilities,
+  on_attach = on_attach
+}
+
+require('lspconfig').ts_ls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach
+}
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp", { clear = true }),
