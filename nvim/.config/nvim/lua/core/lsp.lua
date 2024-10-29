@@ -155,6 +155,11 @@ require('lspconfig').ts_ls.setup {
   on_attach = on_attach
 }
 
+require('lspconfig').yamlls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach
+}
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp", { clear = true }),
   callback = function(args)

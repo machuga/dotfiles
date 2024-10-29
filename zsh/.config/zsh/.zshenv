@@ -7,6 +7,7 @@ PATH=$HOME/homebrew/lib/ruby/gems/3.0.0/bin:$PATH
 PATH="/Users/machuga/homebrew/opt/grep/libexec/gnubin:$PATH"
 PATH=$N_PREFIX/bin:$PATH
 PATH=$HOME/.rbenv/shims:$PATH # rbenv
+PATH=$HOME/.cargo/bin:$PATH # rbenv
 export PATH=./bin:$PATH
 
 # Not same as ZDOTDIR which was causing some headaches for me
