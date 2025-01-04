@@ -81,6 +81,9 @@ vim.cmd([[set t_BE=]])
 -- Turn off paste mode when leaving insert
 vim.cmd([[autocmd InsertLeave * set nopaste]])
 
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
 
 vim.api.nvim_create_autocmd('ColorScheme', {
   callback = function()

@@ -47,7 +47,8 @@ require("mason-lspconfig").setup({
     "yamlls",
     "vimls",
     "bashls",
-    "graphql"
+    "graphql",
+    "denols"
   },
 })
 
@@ -152,7 +153,15 @@ require('lspconfig').rubocop.setup {
 
 require('lspconfig').ts_ls.setup {
   capabilities = capabilities,
-  on_attach = on_attach
+  on_attach = on_attach,
+  root_dir = require('lspconfig').util.root_pattern("package.json"),
+  single_file_support = false
+}
+
+require('lspconfig').denols.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  root_dir = require('lspconfig').util.root_pattern("deno.json", "deno.jsonc"),
 }
 
 require('lspconfig').yamlls.setup {
