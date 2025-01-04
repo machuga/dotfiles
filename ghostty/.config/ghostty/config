@@ -1,0 +1,5 @@
+font-family = "InconsolataGo Nerd Font Mono"
+keybind = cmd+r=reload_config
+font-size = 16
+window-inherit-font-size = true
+resize-overlay = never
