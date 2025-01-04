@@ -102,6 +102,6 @@ vim.api.nvim_create_autocmd('ColorScheme', {
   end,
 })
 
-vim.cmd([[let base16colorspace=256]])
+--vim.cmd([[let tinted_colorspace=256]])
 
 vim.cmd.colorscheme('base16-tomorrow-night')

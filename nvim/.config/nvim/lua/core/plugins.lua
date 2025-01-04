@@ -2,7 +2,7 @@ require('core.lazy');
 
 require('lazy').setup({
   require('core.plugins.which-key'),
-  require('core.plugins.base16-vim'),
+  require('core.plugins.tinted-vim'),
   require('core.plugins.fzf'),
   require('core.plugins.mason'),
   require('core.plugins.nvim-web-devicons'),
