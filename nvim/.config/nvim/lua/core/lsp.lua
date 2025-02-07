@@ -88,6 +88,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>lds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>lrn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>lca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  nmap("<leader>lce", vim.diagnostic.open_float, "[E]xplain via Float")
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
