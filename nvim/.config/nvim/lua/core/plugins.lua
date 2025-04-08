@@ -14,4 +14,5 @@ require('lazy').setup({
   require('core.plugins.treesj'),
   require('core.plugins.lualine'),
   require('core.plugins.zenmode'),
+  require('core.plugins.lazygit'),
 })
