@@ -8,6 +8,13 @@ return {
   'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
   config = function()
     local builtin = require('telescope.builtin')
+    require('telescope').setup {
+      defaults = {
+        file_ignore_patterns = {
+          "node_modules"
+        }
+      }
+    }
 
     require("which-key").add({
       { "<leader>/",  builtin.live_grep,  desc = "Live Grep" },

@@ -1,6 +1,7 @@
 DISABLE_AUTO_TITLE="true"
 export BROWSER="firefox"
 export TERM="xterm-256color"
+export XDG_DATA_DIRS="/opt/homebrew/share:$XDG_DATA_DIRS"
 
 # macOS loads /etc/zshrc which prefixes things to the PATH I don't want there.
 # This just runs .zshenv again and cleans up the PATH.
