@@ -26,6 +26,9 @@ vim.opt.smartindent = true
 -- Set splitting
 vim.opt.splitbelow = true
 
+-- Floating window border
+vim.opt.winborder = "rounded"
+
 -- Searching
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
