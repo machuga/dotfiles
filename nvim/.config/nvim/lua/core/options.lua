@@ -73,6 +73,8 @@ vim.opt.backupskip = "/tmp/*,/private/tmp/*"
 vim.opt.foldenable = true
 
 vim.opt.termguicolors = true
+vim.o.shell = "/bin/zsh"
+vim.o.shellcmdflag = "-ic"
 
 -- incremental substitution (neovim)
 vim.opt.inccommand = "split"

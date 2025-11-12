@@ -8,6 +8,7 @@ require('lazy').setup({
   require('core.plugins.nvim-web-devicons'),
   require('core.plugins.focus'),
   require('core.plugins.treesitter'),
+  require('core.plugins.openingh'),
   require('core.plugins.plenary'),
   require('core.plugins.telescope'),
   require('core.plugins.sandwich'),
