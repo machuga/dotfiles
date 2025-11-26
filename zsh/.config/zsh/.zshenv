@@ -13,3 +13,5 @@ export PATH=./bin:$PATH
 # Not same as ZDOTDIR which was causing some headaches for me
 export ZDIR=$HOME/.config/zsh
 export HISTFILE=$HOME/.zsh_history
+. "$HOME/.cargo/env"
+export TERMINAL=ghostty

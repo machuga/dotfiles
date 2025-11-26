@@ -8,6 +8,8 @@ export XDG_DATA_DIRS="/opt/homebrew/share:$XDG_DATA_DIRS"
 [ -f "$ZDOTDIR/.zshenv" ] && source "$ZDOTDIR/.zshenv"
 
 export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
 
 unsetopt menu_complete   # do not autoselect the first completion entry
 unsetopt flowcontrol
@@ -65,7 +67,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -s `brew --prefix`/etc/profile.d/z.sh ] && source `brew --prefix`/etc/profile.d/z.sh
+#[ -s `brew --prefix`/etc/profile.d/z.sh ] && source `brew --prefix`/etc/profile.d/z.sh
 
 function mkalias() {
     echo "alias $1=\"${@:2}\"" >> ~/.zalias

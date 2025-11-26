@@ -21,7 +21,11 @@ if type brew &>/dev/null; then
 
   autoload -Uz compinit
   compinit
+else
+  autoload -Uz compinit
+  compinit
 fi
+
 
 zstyle ':autocomplete:*' list-lines 7
 zstyle ':autocomplete:*' widget-style menu-select
