@@ -13,5 +13,8 @@ export PATH=./bin:$PATH
 # Not same as ZDOTDIR which was causing some headaches for me
 export ZDIR=$HOME/.config/zsh
 export HISTFILE=$HOME/.zsh_history
-. "$HOME/.cargo/env"
 export TERMINAL=ghostty
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+. "$HOME/.cargo/env"
+eval "$(rbenv init -)"
