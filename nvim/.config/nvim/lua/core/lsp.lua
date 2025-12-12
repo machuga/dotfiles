@@ -69,7 +69,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     nmap('<leader>lds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
     nmap('<leader>lrn', vim.lsp.buf.rename, '[R]e[n]ame')
-    nmap("<leader>ld", vim.diagnostic.open_float, "Line [d]iagnostics via Float")
+    nmap("<leader>ldf", vim.diagnostic.open_float, "Line [d]iagnostics via Float")
     keymap({ "n", "v" }, '<leader>lca', vim.lsp.buf.code_action, '[C]ode [A]ction')
     nmap("<leader>lrs", ":LspRestart<CR>", "[R]estart LSP")
 
