@@ -13,6 +13,7 @@ return {
         "solargraph",
         "ruby_lsp",
         "rubocop",
+        "herb_ls",
         "taplo",
         "yamlls",
         "vimls",

@@ -39,6 +39,10 @@ vim.keymap.set("n", "<leader>vs", ":vs <C-R>=expand('%:p:h') . '/' <CR>",
 vim.keymap.set("n", "<leader>o", ':set nopaste<cr>', { desc = "Remove search highlighting" })
 vim.keymap.set("i", "kj", '<esc>', { desc = "Quick exit" })
 
+-- In init.lua or a relevant configuration file
+vim.keymap.set('i', '<Tab>', 'pumvisible() ? "<C-n>" : "<C-x><C-o>"', { expr = true, silent = true })
+vim.keymap.set('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true, silent = true })
+
 vim.api.nvim_exec([[
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rename Current File

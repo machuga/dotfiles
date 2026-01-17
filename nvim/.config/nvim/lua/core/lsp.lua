@@ -34,6 +34,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.lsp.buf.format { async = false, id = args.data.client_id }
       end,
     })
+    vim.lsp.completion.enable(true, args.data.client_id, bufnr, {
+      autotrigger = true,
+      convert = function(item)
+        return { abbr = item.label:gsub('%b()', '') }
+      end,
+    })
   end
 })
 

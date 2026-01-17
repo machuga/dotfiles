@@ -9,6 +9,8 @@ vim.opt.wrap = false
 vim.opt.number = true
 vim.opt.ruler = true
 vim.opt.hidden = true
+vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
+vim.cmd [[set completeopt+=menuone,noselect,popup]]
 
 -- Keep more context when scrolling off the end of a buffer
 vim.opt.scrolloff = 3
