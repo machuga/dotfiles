@@ -1,3 +1,3 @@
 return {
-  cmd = { "./bin/bundle", "exec", "solargraph" },
+  --cmd = { "bundle", "exec", "solargraph" },
 }

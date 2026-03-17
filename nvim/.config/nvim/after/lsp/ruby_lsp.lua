@@ -1,3 +1,5 @@
 return {
-  cmd = { "./bin/bundle", "exec", "ruby-lsp" },
+  filetypes = { "ruby" },
+  cmd = { "bundle", "exec", "ruby-lsp" },
+  --root_markers = { "Gemfile", ".git" },
 }

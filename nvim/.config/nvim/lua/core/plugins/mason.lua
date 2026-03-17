@@ -10,7 +10,7 @@ return {
         "cssls",
         "jsonls",
         "ts_ls",
-        "solargraph",
+        --"solargraph",
         "ruby_lsp",
         "rubocop",
         "herb_ls",

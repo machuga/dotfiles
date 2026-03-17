@@ -76,7 +76,7 @@ vim.opt.foldenable = true
 
 vim.opt.termguicolors = true
 vim.o.shell = "/bin/zsh"
-vim.o.shellcmdflag = "-ic"
+vim.o.shellcmdflag = "-c"
 
 -- incremental substitution (neovim)
 vim.opt.inccommand = "split"
