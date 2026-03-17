@@ -16,5 +16,5 @@ export HISTFILE=$HOME/.zsh_history
 export TERMINAL=ghostty
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
 eval "$(rbenv init -)"

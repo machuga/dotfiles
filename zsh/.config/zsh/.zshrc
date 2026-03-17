@@ -11,6 +11,8 @@ export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
 
+setopt inc_append_history
+
 unsetopt menu_complete   # do not autoselect the first completion entry
 unsetopt flowcontrol
 setopt auto_menu         # show completion menu on successive tab press
@@ -34,6 +36,9 @@ else
 fi
 
 os=`uname -s`
+
+
+[ -f "$HOME/.cargo/.env" ] && source "$HOME/.cargo/.env"
 
 # Vi mode
 #bindkey -v
