@@ -16,5 +16,5 @@
 .DS_Store
 .zsh_local
 homebrew
-lazy-lock.json
+nvim/.config/nvim/lazy-lock.json
 zsh/.config/zsh/.zcompdump
